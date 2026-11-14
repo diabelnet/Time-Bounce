@@ -11,6 +11,10 @@ var frames = 0
 var recording_data = {}
 var recording = false
 
+## [0] - String: Name of the Input Action [br]
+## [1] - Callable: Function to call [br]
+## creating Callable: Calllable([Function_name]) [br]
+## calling the function: action[1].call() 
 var action:Array = [null,null]
 
 func record():

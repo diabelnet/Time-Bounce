@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cs8kkhnx580pp"]
 
-[ext_resource type="Script" uid="uid://d17h46jwkt3fm" path="res://Scenes/clone.gd" id="1_eeqi5"]
+[ext_resource type="Script" uid="uid://d17h46jwkt3fm" path="res://Scripts/clone.gd" id="1_eeqi5"]
 [ext_resource type="Texture2D" uid="uid://ccy3f8ppb77sg" path="res://Assets/Slime-0001-Sheet.png" id="1_wmkvi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]

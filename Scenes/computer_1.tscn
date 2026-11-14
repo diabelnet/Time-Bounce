@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ma0lpt8f23a2"]
 
 [ext_resource type="Texture2D" uid="uid://c7wb5ehx6h7wb" path="res://Assets/SpriteSheets/game__jam_.png" id="1_rca42"]
-[ext_resource type="Script" uid="uid://coah1fy7kxj4x" path="res://Scenes/computer.gd" id="2_oc4ge"]
+[ext_resource type="Script" uid="uid://coah1fy7kxj4x" path="res://Scripts/computer.gd" id="2_oc4ge"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j2xe6"]
 atlas = ExtResource("1_rca42")
