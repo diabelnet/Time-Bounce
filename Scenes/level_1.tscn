@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://Scenes/player.tscn" id="1_8ffim"]
 [ext_resource type="Texture2D" uid="uid://b83osx40v0lt2" path="res://Assets/Environment-0001-Sheet.png" id="2_xfk5q"]
 [ext_resource type="PackedScene" uid="uid://ma0lpt8f23a2" path="res://Scenes/computer_1.tscn" id="3_xfk5q"]
+[ext_resource type="PackedScene" uid="uid://b4m84k71pu7m" path="res://Scenes/door.tscn" id="4_7p6j4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wqkje"]
 texture = ExtResource("2_xfk5q")
@@ -48,6 +49,10 @@ position_smoothing_enabled = true
 tile_map_data = PackedByteArray("AAD//wAAAAAAAAEAAAD+/wAAAAAAAAEAAAD9/wAAAAAAAAEAAAD8/wAAAAAAAAEAAAD7/wAAAAAAAAEAAAD6/wAAAAAAAAEAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAEAAAACAAAAAAAAAAEAAAADAAAAAAAAAAEAAAACAP//AAABAAAAAAADAP//AAABAAAAAAADAP7/AAABAAAAAAAEAAAAAAAAAAEAAAAFAAAAAAAAAAEAAAAGAAAAAAAAAAEAAAAHAAAAAAAAAAEAAAAIAAAAAAAAAAEAAAAFAP7/AAABAAAAAAAFAP//AAABAAAAAAAHAP7/AAABAAAAAAAIAP7/AAABAAAAAAAJAP7/AAABAAAAAAAKAP7/AAABAAAAAAA=")
 tile_set = SubResource("TileSet_0f350")
 
-[node name="Computer" parent="." unique_id=858378710 instance=ExtResource("3_xfk5q")]
+[node name="Computer" parent="." unique_id=858378710 node_paths=PackedStringArray("target") instance=ExtResource("3_xfk5q")]
 position = Vector2(284, -70)
 input_name = "Interact_"
+target = NodePath("../Door")
+
+[node name="Door" parent="." unique_id=1938198095 instance=ExtResource("4_7p6j4")]
+position = Vector2(277, -16)

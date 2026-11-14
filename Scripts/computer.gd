@@ -6,13 +6,12 @@ extends AnimatedSprite2D
 @export var repeat_flicker = 4
 @export var resets:bool
 @export var time_to_reset:float
-@export var target:Node2D
+@export var target:AnimatedSprite2D
 
-var interactable:bool = false
+var interactable:bool = true
 var curr_flicker = 0
 func interact():
 	interactable = false
-	
 	if(curr_flicker < repeat_flicker):
 		curr_flicker += 1
 		self.play("flicker")
@@ -24,13 +23,17 @@ func interact():
 		if(resets):
 			var timer = get_tree().create_timer(time_to_reset)
 			timer.timeout = reset
+		print(target)
+		target.interact()
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if(interactable):
-		GameManager.action = [input_name + str(GameManager.controlls),interact]
+	if(interactable && body.name == "Player"):
+		GameManager.action = [input_name + 
+		str(GameManager.controlls),interact]
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	GameManager.action = [null,null]
+	if(body.name == "Player"):
+		GameManager.action = [null,null]
 
 func reset():
 	curr_flicker = 0

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b4m84k71pu7m"]
+
+[ext_resource type="Texture2D" uid="uid://ccy3f8ppb77sg" path="res://Assets/Slime-0001-Sheet.png" id="1_p0e35"]
+[ext_resource type="Script" uid="uid://4twnn0c5nhye" path="res://Scripts/door.gd" id="2_p0e35"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab4ky"]
+atlas = ExtResource("1_p0e35")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a43ba"]
+atlas = ExtResource("1_p0e35")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_burcv"]
+atlas = ExtResource("1_p0e35")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_slswj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab4ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a43ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_burcv")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slswj"]
+size = Vector2(30, 26)
+
+[node name="Door" type="AnimatedSprite2D" unique_id=1938198095]
+sprite_frames = SubResource("SpriteFrames_slswj")
+animation = &"open"
+script = ExtResource("2_p0e35")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1648481327]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=412957570]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_slswj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

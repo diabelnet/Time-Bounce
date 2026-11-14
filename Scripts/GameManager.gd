@@ -10,6 +10,7 @@ var player:CharacterBody2D
 var frames = 0
 var recording_data = {}
 var recording = false
+@export var curr_lvl:int
 
 ## [0] - String: Name of the Input Action [br]
 ## [1] - Callable: Function to call [br]
@@ -50,8 +51,10 @@ func _on_delay_timeout() -> void:
 	if(recording):
 		record()
 
-
 func _on_timer_timeout() -> void:
 	print("a")
 	recording = false
 	record()
+
+func next_level():
+	print("loading next level")
