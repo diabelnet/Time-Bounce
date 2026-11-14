@@ -30,7 +30,7 @@ theme_override_constants/margin_top = 50
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1rerr")
 theme_override_font_sizes/font_size = 70
-text = "NAZWA"
+text = "TIME BOUNCE"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -4,12 +4,3 @@
 
 [node name="GameManager" type="Node" unique_id=785521913]
 script = ExtResource("1_oj352")
-
-[node name="Delay" type="Timer" parent="." unique_id=1918472119]
-process_callback = 0
-wait_time = 0.05
-
-[node name="Timer" type="Timer" parent="." unique_id=969827247]
-
-[connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

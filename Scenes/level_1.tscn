@@ -288,6 +288,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="RecordingTime" type="Timer" parent="." unique_id=666787207]
+process_callback = 0
 wait_time = 3.0
 one_shot = true
 
