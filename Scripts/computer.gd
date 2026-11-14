@@ -44,12 +44,12 @@ var old_inter
 var old_open
 
 func save():
-	print("s")
+	print("save")
 	old_inter = interactable
 	old_open = target.open
 	
 func load():
-	print("l")
+	print("load")
 	target.open = old_open
 	interactable = old_inter
 	if(self.is_playing()):
