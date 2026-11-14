@@ -39,6 +39,7 @@ script = ExtResource("1_cie7c")
 recorded_obj = NodePath("../Player")
 
 [node name="Player" parent="." unique_id=1297774322 instance=ExtResource("3_r3vm0")]
+z_index = 0
 position = Vector2(1, -76)
 collision_mask = 1
 
