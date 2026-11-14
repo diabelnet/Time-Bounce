@@ -137,6 +137,13 @@ Interact_2={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="clone"
+2d_physics/layer_3="solid_obj"
+2d_physics/layer_4="interactable"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
