@@ -1,21 +1,25 @@
 [gd_scene format=3 uid="uid://cs8kkhnx580pp"]
 
 [ext_resource type="Script" uid="uid://d17h46jwkt3fm" path="res://Scripts/clone.gd" id="1_eeqi5"]
-[ext_resource type="Texture2D" uid="uid://ccy3f8ppb77sg" path="res://Assets/Slime-0001-Sheet.png" id="1_wmkvi"]
+[ext_resource type="Texture2D" uid="uid://c7wb5ehx6h7wb" path="res://Assets/SpriteSheets/game__jam_.png" id="2_eeqi5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
-atlas = ExtResource("1_wmkvi")
-region = Rect2(0, 0, 32, 32)
+atlas = ExtResource("2_eeqi5")
+region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
-atlas = ExtResource("1_wmkvi")
-region = Rect2(32, 0, 32, 32)
+atlas = ExtResource("2_eeqi5")
+region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
-atlas = ExtResource("1_wmkvi")
-region = Rect2(64, 0, 32, 32)
+atlas = ExtResource("2_eeqi5")
+region = Rect2(64, 96, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_qa34l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
+atlas = ExtResource("2_eeqi5")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p7wtv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -26,21 +30,25 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fkybt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3wgy")
 }],
 "loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_slswj"]
-size = Vector2(30, 26)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8xe5"]
+size = Vector2(14, 26)
 
 [node name="Clone" type="CharacterBody2D" unique_id=1297774322]
 script = ExtResource("1_eeqi5")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=961404520]
-sprite_frames = SubResource("SpriteFrames_qa34l")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1671824295]
+position = Vector2(5, -3)
+sprite_frames = SubResource("SpriteFrames_p7wtv")
+autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=740106029]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_slswj")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1475033019]
+shape = SubResource("RectangleShape2D_r8xe5")

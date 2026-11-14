@@ -4,6 +4,10 @@ extends Node
 #replay jest klasa ktorej w inspektorze dajesz node jakiego ma nagrywac
 # record() nagrywa pozycje objetu oraz to czy input bylo klikniete
 # play(can_activate) can_activate = default true ; tworzy klona i on wykonuje nagrane ruchy
+# return_to_orginal_pos() zwraca gracza na swoja orginalna pozycje
+# reset() resetuje ta klase
+
+#trust that it works
 
 class_name replay
 
@@ -12,11 +16,17 @@ var cloneScene := load("res://Scenes/clone.tscn")
 
 signal player_input
 
-var frame = 0
+var frame := 0
 var record_data = {}
-
+var first_pos : Vector2
+var is_first_pos_there := false #do sprawdzenia czy pierwsza pozycja byla juz pobrana
 
 func record():
+	if is_first_pos_there == false:
+		first_pos = recorded_obj.global_position
+		print("globalpos" + str(first_pos))
+		is_first_pos_there = true
+	
 	record_data[frame] = {'pos' : recorded_obj.global_position, 'input' : Input.is_action_pressed("Interact_" + str(GameManager.controlls))} #np. record_data[0]['pos'] = Vector2(), lua syntax
 	#record_data[frame] = {'input' = Input.is_action_just_pressed("Interact_" + str(GameManager.controlls))} #zmien potem
 	print(record_data[frame])
@@ -36,3 +46,12 @@ func play(can_activate:bool):
 			tween.tween_property(clone, 'global_position', record_data[i]['pos'], 0.1)
 			if record_data[i]['input'] == true:
 				player_input.emit()
+				
+func return_to_orginal_position():
+	recorded_obj.global_position = first_pos
+	
+func reset():
+	frame = 0
+	record_data = {}
+	first_pos = Vector2(0,0)
+	is_first_pos_there = false

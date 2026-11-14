@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://c5uepl5ppwyrn"]
+
+[ext_resource type="Texture2D" uid="uid://ckium761m5exs" path="res://Assets/sprites/ui_down_placeholder.png" id="1_jxero"]
+
+[node name="UI" type="Control" unique_id=1835474580]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=112045612]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1477094947]
+layout_mode = 2
+texture = ExtResource("1_jxero")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" unique_id=1840254978]
+layout_mode = 2
+texture = ExtResource("1_jxero")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer" unique_id=1814686268]
+layout_mode = 2
+texture = ExtResource("1_jxero")
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer" unique_id=819913904]
+layout_mode = 2
+texture = ExtResource("1_jxero")

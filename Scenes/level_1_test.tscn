@@ -60,10 +60,6 @@ one_shot = true
 wait_time = 3.0
 one_shot = true
 
-[node name="replay2" type="Node" parent="." unique_id=1725087863]
-script = ExtResource("1_cie7c")
-metadata/_custom_type_script = "uid://bl3so2kbu75dj"
-
 [connection signal="player_input" from="replay" to="." method="_on_replay_player_input"]
 [connection signal="timeout" from="record" to="." method="_on_record_timeout"]
 [connection signal="timeout" from="record_time" to="." method="_on_record_time_timeout"]
