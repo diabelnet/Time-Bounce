@@ -95,6 +95,7 @@ animations = [{
 size = Vector2(34, 18)
 
 [node name="Computer" type="AnimatedSprite2D" unique_id=858378710]
+z_index = 8
 sprite_frames = SubResource("SpriteFrames_qa34l")
 animation = &"def"
 script = ExtResource("2_oc4ge")
