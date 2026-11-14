@@ -8,9 +8,12 @@ extends AnimatedSprite2D
 @export var time_to_reset:float
 @export var target:AnimatedSprite2D
 
+
 var interactable:bool = true
 var curr_flicker = 0
 func interact():
+	if(GameManager.is_recording):
+		GameManager.actionClone.append(Callable(interact))
 	interactable = false
 	if(curr_flicker < repeat_flicker):
 		curr_flicker += 1
@@ -38,3 +41,20 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func reset():
 	curr_flicker = 0
 	interactable = true
+
+var old_inter
+var old_open
+
+func save():
+	old_inter = interactable
+	old_open = target.open
+	
+func load():
+	target.open = old_open
+	interactable = old_inter
+	if(self.is_playing()):
+		self.stop()
+	self.play("def")
+	if(target.is_playing()):
+		target.stop()
+	target.play("default")
