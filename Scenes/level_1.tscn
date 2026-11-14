@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://Scenes/player.tscn" id="1_8ffim"]
 [ext_resource type="Script" uid="uid://cxhwnkosdwf24" path="res://Scenes/level_1.gd" id="1_evi0p"]
 [ext_resource type="Texture2D" uid="uid://dtd2mfh0u8h8k" path="res://Assets/SpriteSheets/game_jam_bg.png" id="2_7p6j4"]
+[ext_resource type="PackedScene" uid="uid://c5uepl5ppwyrn" path="res://Scenes/ui.tscn" id="3_lsmp6"]
 [ext_resource type="PackedScene" uid="uid://ma0lpt8f23a2" path="res://Scenes/computer_1.tscn" id="3_xfk5q"]
 [ext_resource type="PackedScene" uid="uid://b4m84k71pu7m" path="res://Scenes/door.tscn" id="4_7p6j4"]
 [ext_resource type="Script" uid="uid://bl3so2kbu75dj" path="res://Scripts/replay.gd" id="5_6444e"]
@@ -291,6 +292,10 @@ one_shot = true
 process_callback = 0
 wait_time = 3.0
 one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=456791344]
+
+[node name="UI" parent="CanvasLayer" unique_id=1835474580 instance=ExtResource("3_lsmp6")]
 
 [connection signal="player_input" from="replay" to="." method="_on_replay_player_input"]
 [connection signal="timeout" from="RecordingFps" to="." method="_on_recording_fps_timeout"]

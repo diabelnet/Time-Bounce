@@ -46,6 +46,7 @@ func play(can_activate:bool):
 				print("ac")
 				GameManager.actionClone[currentAction].call()
 				currentAction += 1
+		return true
 				
 func return_to_orginal_position():
 	print("returned to origin")
@@ -56,3 +57,8 @@ func reset():
 	record_data = {}
 	first_pos = Vector2(0,0)
 	is_first_pos_there = false
+
+func is_recorded():
+	if record_data:
+		print("not null")
+		return true
