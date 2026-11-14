@@ -40,6 +40,7 @@ recorded_obj = NodePath("../Player")
 
 [node name="Player" parent="." unique_id=1297774322 instance=ExtResource("3_r3vm0")]
 position = Vector2(1, -76)
+collision_mask = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=509371194]
 
