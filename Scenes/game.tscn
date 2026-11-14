@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b0v8iryu7kv4r"]
+
+[ext_resource type="PackedScene" uid="uid://bo8f7k2t6qy84" path="res://Scenes/level.tscn" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://Scenes/player.tscn" id="2_qxrlw"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_slswj"]
+
+[node name="Game" type="Node2D" unique_id=839094508]
+
+[node name="Level" parent="." unique_id=137741351 instance=ExtResource("1_ebmjs")]
+
+[node name="Player" parent="Level" unique_id=1297774322 instance=ExtResource("2_qxrlw")]
+position = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level" unique_id=1392564362]
+shape = SubResource("WorldBoundaryShape2D_slswj")
