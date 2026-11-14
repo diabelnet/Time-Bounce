@@ -1,0 +1,69 @@
+[gd_scene format=4 uid="uid://b2h4sypv2j3dl"]
+
+[ext_resource type="Script" uid="uid://b7b3co2txmn88" path="res://Scripts/level_1_test.gd" id="1_2fujg"]
+[ext_resource type="Script" uid="uid://bl3so2kbu75dj" path="res://Scripts/replay.gd" id="1_cie7c"]
+[ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://Scenes/player.tscn" id="3_r3vm0"]
+[ext_resource type="Texture2D" uid="uid://b83osx40v0lt2" path="res://Assets/Environment-0001-Sheet.png" id="4_7pytg"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v7dc4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_il3bq"]
+texture = ExtResource("4_7pytg")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qnu00"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_il3bq")
+
+[node name="Level1" type="Node2D" unique_id=993993253]
+script = ExtResource("1_2fujg")
+
+[node name="replay" type="Node" parent="." unique_id=2078056788 node_paths=PackedStringArray("recorded_obj")]
+script = ExtResource("1_cie7c")
+recorded_obj = NodePath("../Player")
+
+[node name="Player" parent="." unique_id=1297774322 instance=ExtResource("3_r3vm0")]
+position = Vector2(1, -76)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=509371194]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=430135731]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1382484793]
+shape = SubResource("WorldBoundaryShape2D_v7dc4")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1371385015]
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAEAAAD+/wAAAAAAAAEAAAD9/wAAAAAAAAEAAAD8/wAAAAAAAAEAAAD7/wAAAAAAAAEAAAD6/wAAAAAAAAEAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAEAAAACAAAAAAAAAAEAAAADAAAAAAAAAAEAAAA=")
+tile_set = SubResource("TileSet_qnu00")
+
+[node name="record" type="Timer" parent="." unique_id=1599673403]
+wait_time = 0.1
+one_shot = true
+
+[node name="record_time" type="Timer" parent="." unique_id=319794677]
+wait_time = 3.0
+one_shot = true
+
+[node name="replay2" type="Node" parent="." unique_id=1725087863]
+script = ExtResource("1_cie7c")
+metadata/_custom_type_script = "uid://bl3so2kbu75dj"
+
+[connection signal="player_input" from="replay" to="." method="_on_replay_player_input"]
+[connection signal="timeout" from="record" to="." method="_on_record_timeout"]
+[connection signal="timeout" from="record_time" to="." method="_on_record_time_timeout"]
