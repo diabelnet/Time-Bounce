@@ -14,4 +14,5 @@ var actionClone:Array = []
 var is_recording := false
 
 func next_level():
-	print("loading next level")
+	curr_lvl += 1
+	get_tree().change_scene_to_file("res://Scenes/level_" + str(curr_lvl) + ".tscn")

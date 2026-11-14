@@ -48,7 +48,6 @@ func play(can_activate:bool):
 				currentAction += 1
 				
 func return_to_orginal_position():
-	print("returned to origin")
 	recorded_obj.global_position = first_pos
 	
 func reset():
