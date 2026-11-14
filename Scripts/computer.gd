@@ -8,6 +8,7 @@ extends AnimatedSprite2D
 @export var time_to_reset:float
 @export var target:AnimatedSprite2D
 
+
 var interactable:bool = true
 var curr_flicker = 0
 func interact():
@@ -38,3 +39,22 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func reset():
 	curr_flicker = 0
 	interactable = true
+
+var old_inter
+var old_open
+
+func save():
+	print("s")
+	old_inter = interactable
+	old_open = target.open
+	
+func load():
+	print("l")
+	target.open = old_open
+	interactable = old_inter
+	if(self.is_playing()):
+		self.stop()
+	self.play("def")
+	if(target.is_playing()):
+		target.stop()
+	target.play("default")

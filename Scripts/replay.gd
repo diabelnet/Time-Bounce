@@ -24,20 +24,16 @@ var is_first_pos_there := false #do sprawdzenia czy pierwsza pozycja byla juz po
 func record():
 	if is_first_pos_there == false:
 		first_pos = recorded_obj.global_position
-		print("globalpos" + str(first_pos))
 		is_first_pos_there = true
 	
 	record_data[frame] = {'pos' : recorded_obj.global_position, 'input' : Input.is_action_pressed("Interact_" + str(GameManager.controlls))} #np. record_data[0]['pos'] = Vector2(), lua syntax
 	#record_data[frame] = {'input' = Input.is_action_just_pressed("Interact_" + str(GameManager.controlls))} #zmien potem
-	print(record_data[frame])
 	frame +=1
-	
 	
 func play(can_activate:bool):
 	if record_data and can_activate:
 		for c in get_children():
 			c.queue_free()
-		print(record_data)
 		var clone = cloneScene.instantiate() 
 		add_child(clone)
 		var tween = clone.create_tween()
