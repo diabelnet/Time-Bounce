@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://ebia3yvsddsf" path="res://Scripts/ui.gd" id="1_qdvrb"]
 [ext_resource type="Texture2D" uid="uid://cpu6oow7ns5ob" path="res://Assets/sprites/game_jam_GUI_R_10.png" id="2_q7pk6"]
 [ext_resource type="Texture2D" uid="uid://mmldr22joe8j" path="res://Assets/sprites/game_jam_GUI_G_1.png" id="3_m78vo"]
+[ext_resource type="Texture2D" uid="uid://b8d42qhcevdmp" path="res://Assets/sprites/Active.png" id="3_ryf15"]
 [ext_resource type="FontFile" uid="uid://dsupgpcxd5q5g" path="res://Assets/fonts/04B_03__.TTF" id="3_smcll"]
 [ext_resource type="Texture2D" uid="uid://brh1vlccgr3tm" path="res://Assets/sprites/game_jam_GUI_B_1.png" id="4_smcll"]
+[ext_resource type="Texture2D" uid="uid://c84u5084hgsst" path="res://Assets/sprites/No.png" id="5_mmixe"]
 [ext_resource type="Texture2D" uid="uid://k30kemquwa7c" path="res://Assets/sprites/game_jam_GUI_P_1.png" id="5_ryf15"]
 
 [node name="UI" type="Control" unique_id=1835474580 groups=["UI"]]
@@ -41,9 +43,13 @@ offset_top = -20.0
 offset_right = 40.0
 offset_bottom = 20.0
 grow_vertical = 2
+theme_override_constants/margin_left = 0
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/AbilityUI1/MarginContainer2" unique_id=1467307538]
+[node name="IsNowActive" type="TextureRect" parent="HBoxContainer/AbilityUI1/MarginContainer2" unique_id=1467307538]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(8, 0)
+texture = ExtResource("3_ryf15")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/AbilityUI1" unique_id=1391661676]
 layout_mode = 1
@@ -52,15 +58,30 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -78.0
-offset_top = -18.0
-offset_bottom = 18.0
+offset_left = -105.0
+offset_top = -28.5
+offset_bottom = 28.5
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_constants/margin_right = 20
+theme_override_constants/margin_right = 17
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/AbilityUI1/MarginContainer" unique_id=335817713]
 layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/AbilityUI1/MarginContainer/VBoxContainer" unique_id=1827805164]
+layout_mode = 2
+
+[node name="Recorded" type="Label" parent="HBoxContainer/AbilityUI1/MarginContainer/VBoxContainer/HBoxContainer" unique_id=870692310]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_smcll")
+theme_override_font_sizes/font_size = 18
+text = "CLONE:"
+
+[node name="YesNo" type="TextureRect" parent="HBoxContainer/AbilityUI1/MarginContainer/VBoxContainer/HBoxContainer" unique_id=913503861]
+layout_mode = 2
+texture = ExtResource("5_mmixe")
+stretch_mode = 2
 
 [node name="Play" type="Label" parent="HBoxContainer/AbilityUI1/MarginContainer/VBoxContainer" unique_id=1416945256]
 layout_mode = 2
@@ -78,12 +99,201 @@ text = "RECORD: Q"
 layout_mode = 2
 texture = ExtResource("3_m78vo")
 
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/AbilityUI2" unique_id=372092261]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+
+[node name="IsNowActive" type="TextureRect" parent="HBoxContainer/AbilityUI2/MarginContainer2" unique_id=2086125889]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(8, 0)
+texture = ExtResource("3_ryf15")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/AbilityUI2" unique_id=1870241000]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -28.5
+offset_bottom = 28.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 17
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/AbilityUI2/MarginContainer" unique_id=427765291]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/AbilityUI2/MarginContainer/VBoxContainer" unique_id=234817627]
+layout_mode = 2
+
+[node name="Recorded" type="Label" parent="HBoxContainer/AbilityUI2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=243294703]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_smcll")
+theme_override_font_sizes/font_size = 18
+text = "CLONE:"
+
+[node name="YesNo" type="TextureRect" parent="HBoxContainer/AbilityUI2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=280060021]
+layout_mode = 2
+texture = ExtResource("5_mmixe")
+stretch_mode = 2
+
+[node name="Play" type="Label" parent="HBoxContainer/AbilityUI2/MarginContainer/VBoxContainer" unique_id=1917415623]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_smcll")
+theme_override_font_sizes/font_size = 18
+text = "PLAY: E"
+
+[node name="Record" type="Label" parent="HBoxContainer/AbilityUI2/MarginContainer/VBoxContainer" unique_id=326047885]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_smcll")
+theme_override_font_sizes/font_size = 18
+text = "RECORD: Q"
+
 [node name="AbilityUI3" type="TextureRect" parent="HBoxContainer" unique_id=1814686268]
 layout_mode = 2
 texture = ExtResource("4_smcll")
 
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/AbilityUI3" unique_id=952766420]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+
+[node name="IsNowActive" type="TextureRect" parent="HBoxContainer/AbilityUI3/MarginContainer2" unique_id=1900693293]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(8, 0)
+texture = ExtResource("3_ryf15")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/AbilityUI3" unique_id=873485124]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -28.5
+offset_bottom = 28.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 17
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/AbilityUI3/MarginContainer" unique_id=149739085]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/AbilityUI3/MarginContainer/VBoxContainer" unique_id=1104717557]
+layout_mode = 2
+
+[node name="Recorded" type="Label" parent="HBoxContainer/AbilityUI3/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1319977958]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_smcll")
+theme_override_font_sizes/font_size = 18
+text = "CLONE:"
+
+[node name="YesNo" type="TextureRect" parent="HBoxContainer/AbilityUI3/MarginContainer/VBoxContainer/HBoxContainer" unique_id=979269841]
+layout_mode = 2
+texture = ExtResource("5_mmixe")
+stretch_mode = 2
+
+[node name="Play" type="Label" parent="HBoxContainer/AbilityUI3/MarginContainer/VBoxContainer" unique_id=324308970]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_smcll")
+theme_override_font_sizes/font_size = 18
+text = "PLAY: E"
+
+[node name="Record" type="Label" parent="HBoxContainer/AbilityUI3/MarginContainer/VBoxContainer" unique_id=2090614199]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_smcll")
+theme_override_font_sizes/font_size = 18
+text = "RECORD: Q"
+
 [node name="AbilityUI4" type="TextureRect" parent="HBoxContainer" unique_id=819913904]
 layout_mode = 2
 texture = ExtResource("5_ryf15")
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/AbilityUI4" unique_id=2080654790]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+
+[node name="IsNowActive" type="TextureRect" parent="HBoxContainer/AbilityUI4/MarginContainer2" unique_id=1080288815]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(8, 0)
+texture = ExtResource("3_ryf15")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/AbilityUI4" unique_id=1805633274]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -28.5
+offset_bottom = 28.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 17
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/AbilityUI4/MarginContainer" unique_id=329446514]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/AbilityUI4/MarginContainer/VBoxContainer" unique_id=1604547844]
+layout_mode = 2
+
+[node name="Recorded" type="Label" parent="HBoxContainer/AbilityUI4/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1431549047]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_smcll")
+theme_override_font_sizes/font_size = 18
+text = "CLONE:"
+
+[node name="YesNo" type="TextureRect" parent="HBoxContainer/AbilityUI4/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1044308480]
+layout_mode = 2
+texture = ExtResource("5_mmixe")
+stretch_mode = 2
+
+[node name="Play" type="Label" parent="HBoxContainer/AbilityUI4/MarginContainer/VBoxContainer" unique_id=997720446]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_smcll")
+theme_override_font_sizes/font_size = 18
+text = "PLAY: E"
+
+[node name="Record" type="Label" parent="HBoxContainer/AbilityUI4/MarginContainer/VBoxContainer" unique_id=1053772419]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_smcll")
+theme_override_font_sizes/font_size = 18
+text = "RECORD: Q"
 
 [node name="Node" type="Node" parent="." unique_id=1458247607]
