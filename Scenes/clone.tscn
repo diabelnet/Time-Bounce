@@ -43,6 +43,7 @@ animations = [{
 size = Vector2(14, 26)
 
 [node name="Clone" type="CharacterBody2D" unique_id=1297774322]
+z_index = 9
 script = ExtResource("1_eeqi5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1671824295]
