@@ -5,7 +5,6 @@ var inside:bool = false
 @onready var area_2d: Area2D = $Area2D
 
 func interact():
-	print("interacted")
 	self.play("open")
 	open = true
 

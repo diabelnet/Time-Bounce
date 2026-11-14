@@ -10,6 +10,8 @@ var player:CharacterBody2D
 ## creating Callable: Calllable([Function_name]) [br]
 ## calling the function: action[1].call() 
 var action:Array = [null,null]
+var actionClone:Array = []
+var is_recording := false
 
 func next_level():
 	print("loading next level")
