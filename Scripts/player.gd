@@ -34,6 +34,10 @@ func _input(event: InputEvent) -> void:
 		
 	if(event.is_action_pressed("Play_Clone_" + str(controlls), false)):
 			GameManager.play()
-			
+	
+	if(GameManager.action[0] != null):
+		if(event.is_action_pressed(GameManager.action[0])):
+			GameManager.action[1].call()
+	
 func _ready() -> void:
 	GameManager.player = self

@@ -11,6 +11,8 @@ var frames = 0
 var recording_data = {}
 var recording = false
 
+var action:Array = [null,null]
+
 func record():
 	if(!recording):
 		print("stopped")

@@ -2,18 +2,21 @@
 
 [ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://Scenes/player.tscn" id="1_8ffim"]
 [ext_resource type="Texture2D" uid="uid://b83osx40v0lt2" path="res://Assets/Environment-0001-Sheet.png" id="2_xfk5q"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_81xng"]
+[ext_resource type="PackedScene" uid="uid://ma0lpt8f23a2" path="res://Scenes/computer_1.tscn" id="3_xfk5q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wqkje"]
 texture = ExtResource("2_xfk5q")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:0/0 = 0
 3:0/0 = 0
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:1/0 = 0
 3:1/0 = 0
 0:2/0 = 0
@@ -27,23 +30,25 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_0f350"]
 tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_wqkje")
 
 [node name="Level 1" type="Node2D" unique_id=137741351]
 
 [node name="Player" parent="." unique_id=1297774322 instance=ExtResource("1_8ffim")]
 position = Vector2(-5, -102)
+collision_mask = 5
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1089701602]
 position = Vector2(1, 5)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1143494839]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=882074544]
-shape = SubResource("WorldBoundaryShape2D_81xng")
-
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=441351957]
-tile_map_data = PackedByteArray("AAD//wAAAAAAAAEAAAD+/wAAAAAAAAEAAAD9/wAAAAAAAAEAAAD8/wAAAAAAAAEAAAD7/wAAAAAAAAEAAAD6/wAAAAAAAAEAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAEAAAACAAAAAAAAAAEAAAADAAAAAAAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAEAAAD+/wAAAAAAAAEAAAD9/wAAAAAAAAEAAAD8/wAAAAAAAAEAAAD7/wAAAAAAAAEAAAD6/wAAAAAAAAEAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAEAAAACAAAAAAAAAAEAAAADAAAAAAAAAAEAAAACAP//AAABAAAAAAADAP//AAABAAAAAAADAP7/AAABAAAAAAAEAAAAAAAAAAEAAAAFAAAAAAAAAAEAAAAGAAAAAAAAAAEAAAAHAAAAAAAAAAEAAAAIAAAAAAAAAAEAAAAFAP3/AAABAAAAAAAFAP7/AAABAAAAAAAFAP//AAABAAAAAAAHAP3/AAABAAAAAAAIAP3/AAABAAAAAAAJAP3/AAABAAAAAAAKAP3/AAABAAAAAAA=")
 tile_set = SubResource("TileSet_0f350")
+
+[node name="Computer" parent="." unique_id=858378710 instance=ExtResource("3_xfk5q")]
+position = Vector2(283, -106)
+input_name = "Interact_"
