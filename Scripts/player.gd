@@ -27,3 +27,20 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
+<<<<<<< HEAD
+=======
+func _input(event: InputEvent) -> void:
+	if(event.is_action_pressed("Record_Clone_" + str(controlls))):
+		GameManager.recording = true
+		GameManager.record()
+		
+	if(event.is_action_pressed("Play_Clone_" + str(controlls), false)):
+			GameManager.play()
+	
+	if(GameManager.action[0] != null):
+		if(event.is_action_pressed(GameManager.action[0])):
+			GameManager.action[1].call()
+	
+func _ready() -> void:
+	GameManager.player = self
+>>>>>>> 4ccee2cc83e36721b08c6be57efd619035434a6d
