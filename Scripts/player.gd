@@ -3,9 +3,14 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+@onready var clonePacked:PackedScene = load("res://Scenes/clone.tscn")
+
 var controlls:int = GameManager.controlls
 
-var recoring:Array = []
+var isRecording:bool = false
+var recording:Array = []
+
+var instance:CharacterBody2D = null
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -26,8 +31,29 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	if isRecording:
+		recording.append([delta, jump])
+		recording.append([delta, direction])
 
 	move_and_slide()
 	
+func _input(event: InputEvent) -> void:
+	if(event.is_action("Record_Clone_" + str(controlls))):
+		record()
+	if(event.is_action("Play_Clone_" + str(controlls))):
+		if(event.is_action_pressed("Play_Clone_" + str(controlls), false)):
+			play()
+
 func record() -> void:
-	pass
+	isRecording = true
+	recording = []
+	
+func play() -> void:
+	if(instance != null):
+		instance.free()
+	instance = clonePacked.instantiate()
+	instance.position = Vector2(0, -50)
+	self.add_sibling(instance)
+	
+	GameManager.recording = recording

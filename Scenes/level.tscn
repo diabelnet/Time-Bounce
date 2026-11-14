@@ -1,3 +1,49 @@
-[gd_scene format=3 uid="uid://bo8f7k2t6qy84"]
+[gd_scene format=4 uid="uid://bo8f7k2t6qy84"]
 
-[node name="Level" type="Node2D" unique_id=137741351]
+[ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://Scenes/player.tscn" id="1_k5f4k"]
+[ext_resource type="Texture2D" uid="uid://b83osx40v0lt2" path="res://Assets/Environment-0001-Sheet.png" id="2_6phgx"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_81xng"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wqkje"]
+texture = ExtResource("2_6phgx")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0f350"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_wqkje")
+
+[node name="Level 1" type="Node2D" unique_id=137741351]
+
+[node name="Player" parent="." unique_id=1297774322 instance=ExtResource("1_k5f4k")]
+position = Vector2(-5, -102)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1089701602]
+position = Vector2(1, 5)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1143494839]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=882074544]
+shape = SubResource("WorldBoundaryShape2D_81xng")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=441351957]
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAEAAAD+/wAAAAAAAAEAAAD9/wAAAAAAAAEAAAD8/wAAAAAAAAEAAAD7/wAAAAAAAAEAAAD6/wAAAAAAAAEAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAEAAAACAAAAAAAAAAEAAAADAAAAAAAAAAEAAAA=")
+tile_set = SubResource("TileSet_0f350")
