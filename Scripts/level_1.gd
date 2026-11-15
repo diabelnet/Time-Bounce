@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 				can_frame = false
 				$RecordingFps.start()
 				
-	elif Input.is_action_just_pressed("Record_Clone_" + str(GameManager.controlls)):
+	elif Input.is_action_just_pressed("Record_Clone_" + str(GameManager.controlls)) and !is_playing_replay_rn:
 		get_tree().call_group('UI', 'start_cooldown', 3,0)
 		for c in get_children():
 			if(c.name == "Computer"):
