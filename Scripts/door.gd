@@ -42,5 +42,6 @@ func _input(event: InputEvent) -> void:
 			if GameManager.curr_lvl == 3:
 				get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 				GameManager.game_ended = true	
+				GameManager.curr_lvl = 1
 			else:
 				GameManager.next_level()

@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cieefivpue2qq"]
 
 [ext_resource type="Script" uid="uid://c1hrmyfx8gki3" path="res://Scripts/level_3.gd" id="1_5e78q"]
-[ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://Scenes/level_1/player.tscn" id="2_5rvg2"]
+[ext_resource type="PackedScene" uid="uid://bvok2p4y1dah5" path="res://Scenes/level_3/player3.tscn" id="2_5rvg2"]
 [ext_resource type="Texture2D" uid="uid://dtd2mfh0u8h8k" path="res://Assets/SpriteSheets/game_jam_bg.png" id="3_jtv8s"]
 [ext_resource type="Texture2D" uid="uid://byfn0tw4cnxvs" path="res://Assets/SpriteSheets/warning_jam.png" id="4_5rvg2"]
 [ext_resource type="Script" uid="uid://bl3so2kbu75dj" path="res://Scripts/replay.gd" id="5_n4vm5"]
@@ -113,7 +113,7 @@ texture = ExtResource("3_jtv8s")
 19:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_t7v2y"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_42uki")
 
@@ -295,7 +295,7 @@ texture = ExtResource("4_5rvg2")
 0:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_vcilj"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_ait6c")
 sources/2 = SubResource("TileSetAtlasSource_5rvg2")
@@ -304,10 +304,9 @@ sources/2 = SubResource("TileSetAtlasSource_5rvg2")
 script = ExtResource("1_5e78q")
 
 [node name="Player" parent="." unique_id=1297774322 instance=ExtResource("2_5rvg2")]
-position = Vector2(-161, -130)
-collision_mask = 5
+position = Vector2(-209, -126)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1047172469]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=5342691]
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
