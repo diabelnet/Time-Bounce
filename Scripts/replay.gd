@@ -45,10 +45,7 @@ func play(can_activate:bool):
 		for i in frame:
 			tween.tween_property(clone, 'global_position', record_data[GameManager.curr_clone][i]['pos'], 0.1)
 			if record_data[GameManager.curr_clone][i]['input'] == true:
-				print(GameManager.actionClone[currentAction])
-				if(GameManager.actionClone[currentAction] != null):
-					if(GameManager.actionClone[currentAction].size() > 0):
-						GameManager.actionClone[currentAction][0].call()
+				GameManager.actionClone[currentAction][GameManager.curr_clone][0].call()
 				currentAction += 1
 		return true
 				
