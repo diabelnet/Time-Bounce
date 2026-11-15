@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cpcyy8h2wxrp7" path="res://Scenes/comp_2.tscn" id="4_lsmp6"]
 [ext_resource type="Script" uid="uid://bl3so2kbu75dj" path="res://Scripts/replay.gd" id="5_6444e"]
 [ext_resource type="PackedScene" uid="uid://bj80em0g3xy4k" path="res://Scenes/door_2.tscn" id="5_lsmp6"]
-[ext_resource type="Script" uid="uid://ga7yho2oi347" path="res://Scenes/comp_2.gd" id="5_xrdnt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evi0p"]
 texture = ExtResource("2_7p6j4")
@@ -277,7 +276,6 @@ tile_set = SubResource("TileSet_lsmp6")
 position = Vector2(287, -70)
 collision_layer = 8
 collision_mask = 3
-script = ExtResource("5_xrdnt")
 
 [node name="door_2" parent="." unique_id=543632920 instance=ExtResource("5_lsmp6")]
 position = Vector2(303, -12)

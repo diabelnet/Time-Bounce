@@ -30,10 +30,6 @@ func _process(delta: float) -> void:
 				
 	elif Input.is_action_just_pressed("Record_Clone_" + str(GameManager.controlls)) and !is_playing_replay_rn:
 		get_tree().call_group('UI', 'start_cooldown', 3,0)
-		for c in get_children():
-			if(c.name == "Computer"):
-				c.save()
-		GameManager.actionClone = [[],[],[],[]]
 		GameManager.is_recording = true
 		can_record = true
 		$replay.reset()
@@ -56,10 +52,6 @@ func _process(delta: float) -> void:
 			door_open = true
 			print("door opened")
 	
-	if door_open and is_in_door:
-		if Input.is_action_just_pressed("Interact_1"):
-			get_tree().change_scene_to_file("res://Scenes/menu.tscn")
-	
 	if is_in_door and door_open:
 		if Input.is_action_just_pressed("Interact_1"):
 			get_tree().change_scene_to_file("res://Scenes/level_2.tscn")
@@ -73,9 +65,6 @@ func _on_recording_time_timeout() -> void: #to tez musi byc ustawione na one sho
 	GameManager.is_recording = false
 	get_tree().call_group('UI', 'change_recorded_save', GameManager.curr_clone, true)
 	
-	for c in get_children():
-		if(c.name == "Computer"):
-			c.load()
 
 func _on_replay_player_input() -> void:
 	clone_inputed = true
