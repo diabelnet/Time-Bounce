@@ -2,6 +2,82 @@
 
 [ext_resource type="FontFile" uid="uid://dsupgpcxd5q5g" path="res://Assets/fonts/04B_03__.TTF" id="1_1rerr"]
 [ext_resource type="Script" uid="uid://dwuoyxv1ibjur" path="res://Scripts/menu.gd" id="1_xhh6f"]
+[ext_resource type="Texture2D" uid="uid://c63xt6fbancmc" path="res://Assets/BG/bg_title_mono.png" id="2_cayip"]
+[ext_resource type="PackedScene" uid="uid://de4k3mxfq8dio" path="res://Scenes/settings.tscn" id="4_158mb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6m2ua"]
+bg_color = Color(0.24313726, 0.24313726, 0.24313726, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_158mb"]
+bg_color = Color(1, 0.16470589, 0.16470589, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b00df"]
+bg_color = Color(1, 0.16470589, 0.16470589, 1)
+corner_detail = 1
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efnlt"]
+bg_color = Color(0.24313726, 0.24313726, 0.24313726, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cayip"]
+bg_color = Color(0.24313726, 0.54509807, 0.3254902, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gyll"]
+bg_color = Color(0.24313726, 0.54509807, 0.3254902, 1)
+corner_detail = 1
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwsa2"]
+bg_color = Color(0.14901961, 0.32941177, 0.5882353, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ovwm"]
+bg_color = Color(0.14901961, 0.32941177, 0.5882353, 1)
+corner_detail = 1
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsrd8"]
+bg_color = Color(0.34901962, 0.09803922, 0.6039216, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eelgd"]
+bg_color = Color(0.34901962, 0.09803922, 0.6039216, 1)
+corner_detail = 1
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
 
 [node name="menu" type="Control" unique_id=517134646]
 layout_mode = 3
@@ -11,6 +87,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xhh6f")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=159759860]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_cayip")
 
 [node name="Nazwa" type="GridContainer" parent="." unique_id=124835374]
 layout_mode = 1
@@ -28,6 +113,9 @@ theme_override_constants/margin_top = 50
 
 [node name="NazwaLabel" type="Label" parent="Nazwa/MarginContainer" unique_id=789769312]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.77254903)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
 theme_override_fonts/font = ExtResource("1_1rerr")
 theme_override_font_sizes/font_size = 70
 text = "TIME BOUNCE"
@@ -48,31 +136,47 @@ theme_override_constants/margin_top = 120
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Buttons/MarginContainer" unique_id=694227499]
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 20
 
 [node name="Play" type="Button" parent="Buttons/MarginContainer/VBoxContainer" unique_id=2117232002]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1rerr")
 theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_6m2ua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_158mb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b00df")
 text = "Play"
 
 [node name="Options" type="Button" parent="Buttons/MarginContainer/VBoxContainer" unique_id=1141586206]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1rerr")
 theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_efnlt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cayip")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2gyll")
 text = "Settings"
 
 [node name="Credits" type="Button" parent="Buttons/MarginContainer/VBoxContainer" unique_id=833261829]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1rerr")
 theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_efnlt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wwsa2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3ovwm")
 text = "Credits"
 
 [node name="Quit" type="Button" parent="Buttons/MarginContainer/VBoxContainer" unique_id=507223162]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1rerr")
 theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_efnlt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jsrd8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eelgd")
 text = "Quit"
+
+[node name="Settings" parent="." unique_id=868771308 instance=ExtResource("4_158mb")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]

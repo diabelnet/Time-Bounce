@@ -112,6 +112,7 @@ grow_vertical = 2
 theme_override_constants/margin_left = 0
 
 [node name="IsNowActive" type="TextureRect" parent="HBoxContainer/AbilityUI2/MarginContainer2" unique_id=2086125889]
+visible = false
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(8, 0)
@@ -179,6 +180,7 @@ grow_vertical = 2
 theme_override_constants/margin_left = 0
 
 [node name="IsNowActive" type="TextureRect" parent="HBoxContainer/AbilityUI3/MarginContainer2" unique_id=1900693293]
+visible = false
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(8, 0)
@@ -246,6 +248,7 @@ grow_vertical = 2
 theme_override_constants/margin_left = 0
 
 [node name="IsNowActive" type="TextureRect" parent="HBoxContainer/AbilityUI4/MarginContainer2" unique_id=1080288815]
+visible = false
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(8, 0)
