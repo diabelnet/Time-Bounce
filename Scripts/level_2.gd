@@ -10,6 +10,7 @@ var is_playing_replay_rn := false
 
 func _ready() -> void:
 	get_tree().call_group("UI", "unlock", 2)
+	GameManager.curr_clone = 0
 
 func _process(delta: float) -> void:
 	if can_record:
@@ -63,3 +64,4 @@ func _on_recording_time_timeout() -> void: #to tez musi byc ustawione na one sho
 
 func _on_replay_player_input() -> void:
 	pass # Replace with function body.
+	
