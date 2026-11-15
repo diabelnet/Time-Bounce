@@ -10,13 +10,16 @@ var player:CharacterBody2D
 ## creating Callable: Calllable([Function_name]) [br]
 ## calling the function: action[1].call() 
 var action:Array = [null,null]
-var actionClone:Array = [[],[],[],[]]
+var actionClone:Callable
 var is_recording := false
 
 var curr_clone = 0
+
+func empty():
+	pass
 
 func next_level():
 	curr_lvl += 1
 	get_tree().change_scene_to_file("res://Scenes/level_" + str(curr_lvl) + ".tscn")
 	action = [null,null]
-	actionClone = [[],[],[],[]]
+	actionClone = Callable(empty)

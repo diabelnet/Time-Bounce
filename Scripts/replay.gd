@@ -32,20 +32,24 @@ func record():
 var instances:Array[CharacterBody2D] = [null, null, null, null]
 var currentAction = 0
 func play(can_activate:bool):
-	print(GameManager.curr_clone)
 	if record_data[GameManager.curr_clone] and can_activate:
 		if(instances[GameManager.curr_clone] != null):
 			instances[GameManager.curr_clone].queue_free()
 		var clone = cloneScene.instantiate() 
 		instances[GameManager.curr_clone] = clone
 		add_child(clone)
+		
 		var tween = clone.create_tween()
 		tween.tween_property(clone, 'global_position', record_data[GameManager.curr_clone][0]['pos'], 0.1).from(record_data[GameManager.curr_clone][0]['pos'])
 		currentAction = 0
+		
 		for i in frame:
 			tween.tween_property(clone, 'global_position', record_data[GameManager.curr_clone][i]['pos'], 0.1)
 			if record_data[GameManager.curr_clone][i]['input'] == true:
-				GameManager.actionClone[currentAction][GameManager.curr_clone][0].call()
+				print(GameManager.actionClone)
+				GameManager.actionClone.call()
+				#if(GameManager.actionClone[currentAction].size() > 0)
+					#GameManager.actionClone[currentAction][GameManager.curr_clone][0].call()
 				currentAction += 1
 		return true
 				

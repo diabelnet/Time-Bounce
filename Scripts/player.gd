@@ -49,7 +49,7 @@ func _input(event: InputEvent) -> void:
 	if(event.is_action_pressed("Restart")):
 			get_tree().reload_current_scene()
 			GameManager.action = [null,null]
-			GameManager.actionClone = []
+			GameManager.actionClone = GameManager.empty
 			
 	if(event.is_action_pressed("Clone_1_" + str(GameManager.controlls))):
 		GameManager.curr_clone = 0

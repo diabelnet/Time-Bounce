@@ -287,10 +287,10 @@ sources/1 = SubResource("TileSetAtlasSource_ait6c")
 [node name="level_2" type="Node2D" unique_id=1090056640]
 script = ExtResource("1_uhnj4")
 
-[node name="Player2" parent="." unique_id=1297774322 instance=ExtResource("2_uhnj4")]
+[node name="Player" parent="." unique_id=1297774322 instance=ExtResource("2_uhnj4")]
 position = Vector2(-172, -11)
 
-[node name="Camera2D" type="Camera2D" parent="Player2" unique_id=1128378343]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1128378343]
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
@@ -310,10 +310,11 @@ tile_set = SubResource("TileSet_vcilj")
 
 [node name="Door2" parent="." unique_id=1938198095 instance=ExtResource("4_42uki")]
 position = Vector2(288, -16)
+comp_needed = 1
 
 [node name="replay" type="Node" parent="." unique_id=500012239 node_paths=PackedStringArray("recorded_obj")]
 script = ExtResource("5_uhnj4")
-recorded_obj = NodePath("../Player2")
+recorded_obj = NodePath("../Player")
 metadata/_custom_type_script = "uid://bl3so2kbu75dj"
 
 [node name="RecordingFps" type="Timer" parent="." unique_id=1050477884]
@@ -327,10 +328,14 @@ one_shot = true
 
 [node name="Computer2" parent="." unique_id=858378710 node_paths=PackedStringArray("target") instance=ExtResource("6_t7v2y")]
 position = Vector2(72, 73)
+animation = &"def"
+autoplay = "def"
 target = NodePath("../Platform")
 
 [node name="Computer" parent="." unique_id=1409238994 node_paths=PackedStringArray("target") instance=ExtResource("6_t7v2y")]
 position = Vector2(280, 41)
+animation = &"def"
+autoplay = "def"
 target = NodePath("../Door2")
 
 [node name="Platform" parent="." unique_id=1694913975 node_paths=PackedStringArray("door") instance=ExtResource("7_2mgoq")]

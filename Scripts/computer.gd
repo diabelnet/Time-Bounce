@@ -13,8 +13,7 @@ var interacted:bool = false
 var interactable:bool = true
 var curr_flicker = 0
 func interact():
-	GameManager.actionClone[GameManager.curr_clone].append(
-		[Callable(self.interact),Callable(self.reset)])
+	GameManager.actionClone = interact
 	interactable = false
 	if(curr_flicker < repeat_flicker):
 		curr_flicker += 1

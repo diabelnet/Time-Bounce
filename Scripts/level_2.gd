@@ -30,11 +30,8 @@ func _process(delta: float) -> void:
 		for c in get_children():
 			if(c.name == "Computer"):
 				c.save()
-		if(GameManager.actionClone.size() > 0):
-			for a in GameManager.actionClone:
-				if(a[1] != null):
-					a[1].call()
-		GameManager.actionClone = [[],[],[],[]]
+		GameManager.actionClone.call()
+		GameManager.actionClone = GameManager.empty
 		GameManager.is_recording = true
 		can_record = true
 		$replay.reset()

@@ -92,7 +92,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slswj"]
-size = Vector2(34, 18)
+size = Vector2(34, 24)
 
 [node name="Computer" type="AnimatedSprite2D" unique_id=858378710]
 z_index = 8
@@ -105,7 +105,7 @@ input_name = "Interact_"
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=737190385]
-position = Vector2(0, 1)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_slswj")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
