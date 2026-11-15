@@ -57,7 +57,7 @@ func _on_recording_time_timeout() -> void: #to tez musi byc ustawione na one sho
 	get_tree().call_group('UI', 'change_recorded_save', GameManager.curr_clone, true)
 	
 	for c in get_children():
-		if(c.name == "Computer"):
+		if(c.name.begins_with("Computer")):
 			c.load()
 
 func _on_replay_player_input() -> void:

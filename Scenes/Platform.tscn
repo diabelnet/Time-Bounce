@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cq6l0ag0jcs21"]
 
 [ext_resource type="Texture2D" uid="uid://qb8uxdblulou" path="res://Assets/sprites/platform.png" id="1_pquxj"]
+[ext_resource type="Script" uid="uid://eid61iujuixh" path="res://Scripts/platform_inv.gd" id="2_8n7cf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8n7cf"]
 atlas = ExtResource("1_pquxj")
@@ -22,6 +23,7 @@ size = Vector2(48, 12)
 
 [node name="Platform" type="AnimatedSprite2D" unique_id=157161708]
 sprite_frames = SubResource("SpriteFrames_slswj")
+script = ExtResource("2_8n7cf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1781727071]
 z_index = 3

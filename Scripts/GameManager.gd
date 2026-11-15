@@ -3,7 +3,7 @@ extends Node
 var controlls: int = 1
 var player:CharacterBody2D
 
-@export var curr_lvl:int = 1
+@export var curr_lvl:int = 2
 
 ## [0] - String: Name of the Input Action [br]
 ## [1] - Callable: Function to call [br]
@@ -23,3 +23,4 @@ func next_level():
 	get_tree().change_scene_to_file("res://Scenes/level_" + str(curr_lvl) + ".tscn")
 	action = [null,null]
 	actionClone = Callable(empty)
+	

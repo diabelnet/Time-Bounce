@@ -46,7 +46,7 @@ func reset():
 	target.reset()
 	interacted = false
 
-var old_inter
+var old_inter:bool = true
 
 func save():
 	old_inter = interactable
