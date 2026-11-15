@@ -7,6 +7,7 @@ var is_timer_started:=false #checks if timer for can_record is started so it can
 var did_return := true #check if player returned to thier first position after recording
 var is_playing_replay_rn := false
 
+
 func _ready() -> void:
 	get_tree().call_group("UI", "unlock", 2)
 

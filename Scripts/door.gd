@@ -39,4 +39,8 @@ func load():
 func _input(event: InputEvent) -> void:
 	if(inside && open):
 		if(event.is_action_pressed("Interact_" + str(GameManager.controlls))):
-			GameManager.next_level()
+			if GameManager.curr_lvl == 3:
+				get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+				GameManager.game_ended = true	
+			else:
+				GameManager.next_level()

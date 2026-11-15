@@ -20,3 +20,7 @@ func _on_quit_pressed() -> void:
 
 func _on_settings_back() -> void:
 	$Settings.hide()
+	
+func _ready() -> void:
+	if GameManager.game_ended:
+		$TextureRect.texture = load("res://Assets/BG/bg_title_color.png")

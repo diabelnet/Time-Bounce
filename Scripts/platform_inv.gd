@@ -14,7 +14,7 @@ func load():
 	
 func reset():
 	if(count < needs):
-		self.visible = true
+		visible = true
 		collision_shape_2d.disabled = false
 
 func _ready() -> void:
