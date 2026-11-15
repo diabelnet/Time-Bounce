@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cpcyy8h2wxrp7"]
+
+[ext_resource type="Texture2D" uid="uid://c7wb5ehx6h7wb" path="res://Assets/SpriteSheets/game__jam_.png" id="1_gtsxp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywae4"]
+atlas = ExtResource("1_gtsxp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t5r54"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywae4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b31vb"]
+size = Vector2(20, 19)
+
+[node name="comp2" type="Area2D" unique_id=788314603]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1094818412]
+sprite_frames = SubResource("SpriteFrames_t5r54")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1656962523]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_b31vb")
