@@ -74,3 +74,12 @@ func _on_replay_player_input() -> void:
 
 func _on_tut_hitbox_body_entered(body: Node2D) -> void:
 	next_tut = true
+	
+func _ready() -> void:
+	if GameManager.controlls == 2:
+		$VBoxContainer/Label.text = "^"
+		$VBoxContainer/Label2.text = "<    >"
+		$tut3/Label.text = "z"
+		$tut4/Label.text = "c"
+		$tut5/Label.text = "x"
+		$tut6/Label.text = "z"

@@ -11,6 +11,10 @@ var is_playing_replay_rn := false
 func _ready() -> void:
 	get_tree().call_group("UI", "unlock", 2)
 	GameManager.curr_clone = 0
+	
+	if GameManager.controlls == 2:
+		$Sprite2D/Label.text = "s"
+		$Sprite2D3/Label.text = "z"
 
 func _process(delta: float) -> void:
 	if can_record:
