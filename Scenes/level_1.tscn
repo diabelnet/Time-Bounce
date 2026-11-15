@@ -322,6 +322,7 @@ theme_override_constants/separation = 0
 layout_mode = 2
 theme_override_fonts/font = ExtResource("10_uy8f0")
 theme_override_font_sizes/font_size = 8
+text = "w"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -13,7 +13,7 @@ var action:Array = [null,null]
 var actionClone:Callable
 var is_recording := false
 
-var curr_clone = 0
+var curr_clone = 1
 
 func empty():
 	pass
