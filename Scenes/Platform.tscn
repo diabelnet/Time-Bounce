@@ -1,16 +1,27 @@
 [gd_scene format=3 uid="uid://cq6l0ag0jcs21"]
 
-[ext_resource type="Texture2D" uid="uid://dtd2mfh0u8h8k" path="res://Assets/SpriteSheets/game_jam_bg.png" id="1_pquxj"]
+[ext_resource type="Texture2D" uid="uid://qb8uxdblulou" path="res://Assets/sprites/platform.png" id="1_pquxj"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7fcwl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8n7cf"]
 atlas = ExtResource("1_pquxj")
-region = Rect2(32, 32, 48, 16)
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_slswj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8n7cf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8n7cf"]
 size = Vector2(48, 12)
 
-[node name="Platform" type="Sprite2D" unique_id=1694913975]
-texture = SubResource("AtlasTexture_7fcwl")
+[node name="Platform" type="AnimatedSprite2D" unique_id=157161708]
+sprite_frames = SubResource("SpriteFrames_slswj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1781727071]
 z_index = 3

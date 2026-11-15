@@ -12,8 +12,7 @@ extends AnimatedSprite2D
 var interactable:bool = true
 var curr_flicker = 0
 func interact():
-	if(GameManager.is_recording):
-		GameManager.actionClone.append(Callable(interact))
+	GameManager.actionClone.append(Callable(interact))
 	interactable = false
 	if(curr_flicker < repeat_flicker):
 		curr_flicker += 1
@@ -43,14 +42,13 @@ func reset():
 	interactable = true
 
 var old_inter
-var old_open
 
 func save():
 	old_inter = interactable
-	old_open = target.open
+	target.save()
 	
 func load():
-	target.open = old_open
+	target.load()
 	interactable = old_inter
 	if(self.is_playing()):
 		self.stop()

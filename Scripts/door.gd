@@ -13,6 +13,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	inside = false
+	
+var old_open
+func save():
+	old_open = open
+
+func load():
+	open = old_open
 
 func _input(event: InputEvent) -> void:
 	if(inside && open):

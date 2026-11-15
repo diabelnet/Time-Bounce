@@ -99,6 +99,7 @@ z_index = 8
 sprite_frames = SubResource("SpriteFrames_qa34l")
 animation = &"anim"
 script = ExtResource("2_usnd1")
+input_name = "Interact_"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1275803051]
 collision_layer = 8
