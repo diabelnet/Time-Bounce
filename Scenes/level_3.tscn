@@ -310,7 +310,7 @@ tile_set = SubResource("TileSet_t7v2y")
 
 [node name="Decorations" type="TileMapLayer" parent="." unique_id=233596368]
 z_index = 2
-tile_map_data = PackedByteArray("AAD0//j/AQADAAcAAADw//j/AQAAAAcAAAAHAPj/AQAPAAgAAAD8//b/AQAIAAcAAFABAPz/AQAFAAAAAAAFAPz/AQAFAAAAAAAJAPz/AQAFAAAAAAD0/wQAAQAFAAIAAAD1/wQAAQAFAAgAAAD+/wIAAQAIAAcAAAADAAkAAQAHAAIAAAANAAQAAQAEAAgAAAA=")
+tile_map_data = PackedByteArray("AAD0//j/AQADAAcAAADw//j/AQAAAAcAAAAHAPj/AQAPAAgAAAD8//b/AQAIAAcAAFABAPz/AQAFAAAAAAAFAPz/AQAFAAAAAAAJAPz/AQAFAAAAAAD0/wQAAQAFAAIAAAD1/wQAAQAFAAgAAAADAAkAAQAHAAIAAAANAAQAAQAEAAgAAAAIAAMAAQAIAAcAAAD+/wMAAQAIAAcAAAD//wkAAQAEAAgAAAAAAAkAAQAEAAgAAAD5//j/AQAEAAgAAAADAAQAAQAFAAgAAAAGAAQAAQADAAcAAAA=")
 tile_set = SubResource("TileSet_vcilj")
 
 [node name="Walls" type="TileMapLayer" parent="." unique_id=1631508057]
@@ -339,7 +339,7 @@ one_shot = true
 [node name="Platform" parent="." unique_id=157161708 instance=ExtResource("6_qf6rc")]
 position = Vector2(-56, -104)
 script = ExtResource("7_5e78q")
-needs = 2
+needs = 3
 
 [node name="Computer" parent="." unique_id=858378710 node_paths=PackedStringArray("target") instance=ExtResource("7_53xsp")]
 position = Vector2(32, -70)

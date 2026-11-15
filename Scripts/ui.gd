@@ -46,10 +46,10 @@ func controls_assign():
 	$HBoxContainer/AbilityUI3/MarginContainer/VBoxContainer/Play.text = "Play: " + KeyBins[0]
 	$HBoxContainer/AbilityUI4/MarginContainer/VBoxContainer/Play.text = "Play: " + KeyBins[0]
 	
-	$HBoxContainer/AbilityUI1/MarginContainer/VBoxContainer/Record.text = "Play: " + KeyBins[1]
-	$HBoxContainer/AbilityUI2/MarginContainer/VBoxContainer/Record.text = "Play: " + KeyBins[1]
-	$HBoxContainer/AbilityUI3/MarginContainer/VBoxContainer/Record.text = "Play: " + KeyBins[1]
-	$HBoxContainer/AbilityUI4/MarginContainer/VBoxContainer/Record.text = "Play: " + KeyBins[1]
+	$HBoxContainer/AbilityUI1/MarginContainer/VBoxContainer/Record.text = "Record: " + KeyBins[1]
+	$HBoxContainer/AbilityUI2/MarginContainer/VBoxContainer/Record.text = "Record: " + KeyBins[1]
+	$HBoxContainer/AbilityUI3/MarginContainer/VBoxContainer/Record.text = "Record: " + KeyBins[1]
+	$HBoxContainer/AbilityUI4/MarginContainer/VBoxContainer/Record.text = "Record: " + KeyBins[1]
 			
 func change_recorded_save(which:int, is_there:bool):
 	if is_there:
@@ -72,4 +72,7 @@ func now_active(which:int):
 		4:
 			$HBoxContainer/AbilityUI4/MarginContainer2/IsNowActive.show()
 
+
+func _ready() -> void:
+	get_tree().call_group('UI', 'controls_assign')
 	

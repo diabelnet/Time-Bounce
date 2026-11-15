@@ -16,5 +16,6 @@ func _on_win_set_focus_exited() -> void:
 
 
 func _on_movment_option_focus_exited() -> void:
-	GameManager.controlls = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MovmentOption.selected
+	GameManager.controlls = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MovmentOption.selected+1
+	get_tree().call_group('UI', 'controls_assign')
 	print(GameManager.controlls)
