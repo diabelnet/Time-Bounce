@@ -3,7 +3,7 @@ extends Node
 var controlls: int = 1
 var player:CharacterBody2D
 
-@export var curr_lvl:int = 2
+@export var curr_lvl:int = 1
 
 ## [0] - String: Name of the Input Action [br]
 ## [1] - Callable: Function to call [br]
