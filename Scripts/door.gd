@@ -29,7 +29,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	inside = false
 	
-var old_open
+var old_open = false
 func save():
 	old_open = open
 

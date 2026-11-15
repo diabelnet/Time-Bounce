@@ -13,13 +13,15 @@ func load():
 	reset()
 	
 func reset():
-	self.visible = true
-	collision_shape_2d.disabled = false
+	if(count < needs):
+		self.visible = true
+		collision_shape_2d.disabled = false
 
 func _ready() -> void:
 	reset()
 
 func interact():
+	count += 1
 	if(count >= needs):
 		collision_shape_2d.disabled = true
 		self.visible = false
