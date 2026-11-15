@@ -27,7 +27,7 @@ func interact():
 			var timer = get_tree().create_timer(time_to_reset)
 			timer.timeout = reset
 		print(target)
-		if(!interacted):
+		if(interacted):
 			target.interact()
 		interacted = true
 	
