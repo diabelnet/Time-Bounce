@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://dyb1k1ktb1uy4"]
 
-[ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://Scenes/player.tscn" id="1_8ffim"]
+[ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://Scenes/level_1/player.tscn" id="1_8ffim"]
 [ext_resource type="Script" uid="uid://coo6foyjiytd3" path="res://Scripts/level_1.gd" id="1_evi0p"]
 [ext_resource type="Texture2D" uid="uid://dtd2mfh0u8h8k" path="res://Assets/SpriteSheets/game_jam_bg.png" id="2_7p6j4"]
 [ext_resource type="PackedScene" uid="uid://c5uepl5ppwyrn" path="res://Scenes/ui.tscn" id="3_lsmp6"]
-[ext_resource type="PackedScene" uid="uid://ma0lpt8f23a2" path="res://Scenes/computer_1.tscn" id="3_xfk5q"]
-[ext_resource type="PackedScene" uid="uid://b4m84k71pu7m" path="res://Scenes/door.tscn" id="4_7p6j4"]
+[ext_resource type="PackedScene" uid="uid://ma0lpt8f23a2" path="res://Scenes/level_1/computer_1.tscn" id="3_xfk5q"]
+[ext_resource type="PackedScene" uid="uid://b4m84k71pu7m" path="res://Scenes/level_1/door.tscn" id="4_7p6j4"]
 [ext_resource type="Script" uid="uid://bl3so2kbu75dj" path="res://Scripts/replay.gd" id="5_6444e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evi0p"]

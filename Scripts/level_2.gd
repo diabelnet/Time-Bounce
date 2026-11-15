@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 			for a in GameManager.actionClone:
 				if(a[1] != null):
 					a[1].call()
-		GameManager.actionClone = []
+		GameManager.actionClone = [[],[],[],[]]
 		GameManager.is_recording = true
 		can_record = true
 		$replay.reset()

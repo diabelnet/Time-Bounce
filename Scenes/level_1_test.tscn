@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://b2h4sypv2j3dl"]
 
-[ext_resource type="Script" uid="uid://b7b3co2txmn88" path="res://Scripts/level_1_test.gd" id="1_2fujg"]
+[ext_resource type="Script" path="res://Scripts/level_1_test.gd" id="1_2fujg"]
 [ext_resource type="Script" uid="uid://bl3so2kbu75dj" path="res://Scripts/replay.gd" id="1_cie7c"]
-[ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://Scenes/player.tscn" id="3_r3vm0"]
+[ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://Scenes/level_1/player.tscn" id="3_r3vm0"]
 [ext_resource type="Texture2D" uid="uid://b83osx40v0lt2" path="res://Assets/Environment-0001-Sheet.png" id="4_7pytg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v7dc4"]
