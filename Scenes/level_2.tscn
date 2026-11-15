@@ -336,9 +336,11 @@ target = NodePath("../Platform")
 position = Vector2(280, 41)
 target = NodePath("../Door")
 
-[node name="Platform" parent="." unique_id=1694913975 instance=ExtResource("7_2mgoq")]
+[node name="Platform" parent="." unique_id=1694913975 node_paths=PackedStringArray("door") instance=ExtResource("7_2mgoq")]
 position = Vector2(72, 7)
 script = ExtResource("8_2mgoq")
+usedForDoor = true
+door = NodePath("../Door")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1602508429]
 

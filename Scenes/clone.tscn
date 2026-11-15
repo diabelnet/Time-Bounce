@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cs8kkhnx580pp"]
 
-[ext_resource type="Script" uid="uid://d17h46jwkt3fm" path="res://Scripts/clone.gd" id="1_eeqi5"]
 [ext_resource type="Texture2D" uid="uid://c7wb5ehx6h7wb" path="res://Assets/SpriteSheets/game__jam_.png" id="2_eeqi5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
@@ -46,7 +45,6 @@ size = Vector2(14, 26)
 z_index = 9
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_eeqi5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1671824295]
 position = Vector2(5, -3)

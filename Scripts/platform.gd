@@ -9,7 +9,7 @@ func save():
 	pass
 
 func load():
-	pass
+	reset()
 	
 func reset():
 	self.visible = false
