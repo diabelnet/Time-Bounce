@@ -7,6 +7,9 @@ var is_timer_started:=false #checks if timer for can_record is started so it can
 var did_return := true #check if player returned to thier first position after recording
 var is_playing_replay_rn := false
 
+func _ready() -> void:
+	get_tree().call_group("UI", "unlock", 2)
+
 func _process(delta: float) -> void:
 	if can_record:
 		if GameManager.is_recording == true: #checks if button is pressed for recording or is it recording now
@@ -27,6 +30,10 @@ func _process(delta: float) -> void:
 		for c in get_children():
 			if(c.name == "Computer"):
 				c.save()
+		if(GameManager.actionClone.size() > 0):
+			for a in GameManager.actionClone:
+				if(a[1] != null):
+					a[1].call()
 		GameManager.actionClone = []
 		GameManager.is_recording = true
 		can_record = true
@@ -36,12 +43,11 @@ func _process(delta: float) -> void:
 				$replay.return_to_orginal_position()
 				did_return = true
 			
-	if Input.is_action_just_pressed("Play_Clone_"+str(GameManager.controlls)) and !is_playing_replay_rn and $replay.is_recorded() and !GameManager.is_recording: #plays recording when prompted
+	if Input.is_action_just_pressed("Play_Clone_"+str(GameManager.controlls)) and !is_playing_replay_rn and $replay.is_recorded(): #plays recording when prompted
 		is_playing_replay_rn = true
 		get_tree().call_group('UI', 'start_cooldown', 3,1)
-		$replay.play(true)
-		await get_tree().create_timer(3).timeout
-		is_playing_replay_rn = false
+		if $replay.play(true) == true:
+			is_playing_replay_rn = false
 
 func _on_recording_fps_timeout() -> void: #to musi byc ustawione na One Shot
 	can_frame = true

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 140
-const JUMP_VELOCITY = -350
+const JUMP_VELOCITY = -325
 
 var controlls:int = GameManager.controlls
 var anim:AnimatedSprite2D
@@ -45,8 +45,20 @@ func _input(event: InputEvent) -> void:
 	if(GameManager.action[0] != null):
 		if(event.is_action_pressed(GameManager.action[0])):
 			GameManager.action[1].call()
+			
 	if(event.is_action_pressed("Restart")):
 			get_tree().reload_current_scene()
+			GameManager.action = [null,null]
+			GameManager.actionClone = []
+			
+	if(event.is_action_pressed("Clone_1_" + str(GameManager.controlls))):
+		GameManager.curr_clone = 0
+	if(event.is_action_pressed("Clone_2_" + str(GameManager.controlls))):
+		GameManager.curr_clone = 1
+	if(event.is_action_pressed("Clone_3_" + str(GameManager.controlls))):
+		GameManager.curr_clone = 2
+	if(event.is_action_pressed("Clone_4_" + str(GameManager.controlls))):
+		GameManager.curr_clone = 3
 	
 func _ready() -> void:
 	anim = get_node("AnimatedSprite2D")

@@ -97,7 +97,7 @@ size = Vector2(34, 18)
 [node name="Computer" type="AnimatedSprite2D" unique_id=858378710]
 z_index = 8
 sprite_frames = SubResource("SpriteFrames_qa34l")
-animation = &"def"
+animation = &"flicker"
 script = ExtResource("2_oc4ge")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1275803051]

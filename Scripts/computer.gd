@@ -8,11 +8,12 @@ extends AnimatedSprite2D
 @export var time_to_reset:float
 @export var target:AnimatedSprite2D
 
+var interacted:bool = false
 
 var interactable:bool = true
 var curr_flicker = 0
 func interact():
-	GameManager.actionClone.append(Callable(interact))
+	GameManager.actionClone.append([Callable(interact),Callable(reset)])
 	interactable = false
 	if(curr_flicker < repeat_flicker):
 		curr_flicker += 1
@@ -26,7 +27,9 @@ func interact():
 			var timer = get_tree().create_timer(time_to_reset)
 			timer.timeout = reset
 		print(target)
-		target.interact()
+		if(!interacted):
+			target.interact()
+		interacted = true
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if(interactable && body.name == "Player"):
@@ -40,6 +43,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func reset():
 	curr_flicker = 0
 	interactable = true
+	target.reset()
+	interacted = false
 
 var old_inter
 

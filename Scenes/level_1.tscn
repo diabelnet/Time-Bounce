@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dyb1k1ktb1uy4"]
 
 [ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://Scenes/player.tscn" id="1_8ffim"]
-[ext_resource type="Script" uid="uid://cxhwnkosdwf24" path="res://Scripts/level_1.gd" id="1_evi0p"]
+[ext_resource type="Script" uid="uid://coo6foyjiytd3" path="res://Scripts/level_1.gd" id="1_evi0p"]
 [ext_resource type="Texture2D" uid="uid://dtd2mfh0u8h8k" path="res://Assets/SpriteSheets/game_jam_bg.png" id="2_7p6j4"]
 [ext_resource type="PackedScene" uid="uid://c5uepl5ppwyrn" path="res://Scenes/ui.tscn" id="3_lsmp6"]
 [ext_resource type="PackedScene" uid="uid://ma0lpt8f23a2" path="res://Scenes/computer_1.tscn" id="3_xfk5q"]
@@ -273,11 +273,13 @@ tile_set = SubResource("TileSet_lsmp6")
 
 [node name="Computer" parent="." unique_id=858378710 node_paths=PackedStringArray("target") instance=ExtResource("3_xfk5q")]
 position = Vector2(288, -70)
+animation = &"def"
 input_name = "Interact_"
 target = NodePath("../Door")
 
 [node name="Door" parent="." unique_id=1938198095 instance=ExtResource("4_7p6j4")]
 position = Vector2(317, -16)
+comp_needed = 1
 
 [node name="replay" type="Node" parent="." unique_id=131720719 node_paths=PackedStringArray("recorded_obj")]
 script = ExtResource("5_6444e")

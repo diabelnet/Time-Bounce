@@ -3,10 +3,25 @@ extends AnimatedSprite2D
 var open:bool = false
 var inside:bool = false
 @onready var area_2d: Area2D = $Area2D
+@export var comp_needed:int
+var active: int = 0
 
 func interact():
-	self.play("open")
-	open = true
+	print(str(active) + " : " + str(comp_needed))
+	active += 1
+	if(active >= comp_needed):
+		self.play("open")
+		open = true
+	
+func reset():
+	active -= 1
+	if(active >= comp_needed):
+		if(!open):
+			self.play("open")
+			open = true
+	else:
+		self.play("default")
+		open = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	inside = true

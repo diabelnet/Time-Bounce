@@ -36,11 +36,12 @@ func _process(delta: float) -> void:
 				$replay.return_to_orginal_position()
 				did_return = true
 			
-	if Input.is_action_just_pressed("Play_Clone_"+str(GameManager.controlls)) and !is_playing_replay_rn and $replay.is_recorded(): #plays recording when prompted
+	if Input.is_action_just_pressed("Play_Clone_"+str(GameManager.controlls)) and !is_playing_replay_rn and $replay.is_recorded() and !GameManager.is_recording: #plays recording when prompted
 		is_playing_replay_rn = true
 		get_tree().call_group('UI', 'start_cooldown', 3,1)
-		if $replay.play(true) == true:
-			is_playing_replay_rn = false
+		$replay.play(true)
+		await get_tree().create_timer(3).timeout
+		is_playing_replay_rn = false
 
 func _on_recording_fps_timeout() -> void: #to musi byc ustawione na One Shot
 	can_frame = true
