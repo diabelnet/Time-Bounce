@@ -50,7 +50,7 @@ func _on_recording_time_timeout() -> void: #to tez musi byc ustawione na one sho
 	can_record = false
 	is_timer_started = false
 	GameManager.is_recording = false
-	get_tree().call_group('UI', 'change_recorded_save', 1, true)
+	get_tree().call_group('UI', 'change_recorded_save', GameManager.curr_clone, true)
 	
 	for c in get_children():
 		if(c.name == "Computer"):

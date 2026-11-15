@@ -3,7 +3,7 @@ extends Control
 @onready var UI_element = [$HBoxContainer/AbilityUI1, $HBoxContainer/AbilityUI2, $HBoxContainer/AbilityUI3, $HBoxContainer/AbilityUI4]
 var element_color = ["R","G","B","P"]
 var KeyBins := []
-var YesNoElement
+@onready var YesNoElement = [$HBoxContainer/AbilityUI1/MarginContainer/VBoxContainer/HBoxContainer/YesNo, $HBoxContainer/AbilityUI2/MarginContainer/VBoxContainer/HBoxContainer/YesNo, $HBoxContainer/AbilityUI3/MarginContainer/VBoxContainer/HBoxContainer/YesNo, $HBoxContainer/AbilityUI4/MarginContainer/VBoxContainer/HBoxContainer/YesNo]
 var NowActiveElement
 
 func start_cooldown(time:float, which: int): #time - ile czasu trwa cooldown, which - ktory cooldown wystartowac (dla ktorego UI)
@@ -52,20 +52,10 @@ func controls_assign():
 	$HBoxContainer/AbilityUI4/MarginContainer/VBoxContainer/Record.text = "Play: " + KeyBins[1]
 			
 func change_recorded_save(which:int, is_there:bool):
-	match which:
-		1:
-			YesNoElement = $HBoxContainer/AbilityUI1/MarginContainer/VBoxContainer/HBoxContainer/YesNo
-		2:
-			YesNoElement = $HBoxContainer/AbilityUI2/MarginContainer/VBoxContainer/HBoxContainer/YesNo
-		3:
-			YesNoElement = $HBoxContainer/AbilityUI3/MarginContainer/VBoxContainer/HBoxContainer/YesNo
-		4:
-			YesNoElement = $HBoxContainer/AbilityUI4/MarginContainer/VBoxContainer/HBoxContainer/YesNo
-	
 	if is_there:
-		YesNoElement.texture = load("res://Assets/sprites/Yes.png")
+		YesNoElement[which].texture = load("res://Assets/sprites/Yes.png")
 	else:
-		YesNoElement.texture = load("res://Assets/sprites/No.png")
+		YesNoElement[which].texture = load("res://Assets/sprites/No.png")
 	
 func now_active(which:int):
 	$HBoxContainer/AbilityUI1/MarginContainer2/IsNowActive.hide()
