@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 140
-const JUMP_VELOCITY = -325
+const JUMP_VELOCITY = -350
 
 var controlls:int = GameManager.controlls
 var anim:AnimatedSprite2D

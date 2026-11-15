@@ -6,7 +6,7 @@ extends AnimatedSprite2D
 @export var repeat_flicker = 4
 @export var resets:bool
 @export var time_to_reset:float
-@export var target:AnimatedSprte2D
+#@export var target:AnimatedSprte2D
 
 var interacted:bool = false
 var interactable:bool = true

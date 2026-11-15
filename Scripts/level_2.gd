@@ -32,8 +32,9 @@ func _process(delta: float) -> void:
 				c.save()
 		if(GameManager.actionClone.size() > 0):
 			for a in GameManager.actionClone:
-				if(a[1] != null):
-					a[1].call()
+				if a:
+					if a[1] != null:
+						a[1].call()
 		GameManager.actionClone = [[],[],[],[]]
 		GameManager.is_recording = true
 		can_record = true

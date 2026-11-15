@@ -7,6 +7,12 @@ var is_timer_started:=false #checks if timer for can_record is started so it can
 var did_return := true #check if player returned to thier first position after recording
 var is_playing_replay_rn := false
 
+var can_click := false	
+var clone_inputed := false
+
+var is_in_door := false
+var door_open :=false
+
 func _process(delta: float) -> void:
 	if can_record:
 		if GameManager.is_recording == true: #checks if button is pressed for recording or is it recording now
@@ -35,6 +41,7 @@ func _process(delta: float) -> void:
 	elif did_return == false: #when recording ends it checks if player returned, if not then it retuns them
 				$replay.return_to_orginal_position()
 				did_return = true
+				door_open = false
 			
 	if Input.is_action_just_pressed("Play_Clone_"+str(GameManager.controlls)) and !is_playing_replay_rn and $replay.is_recorded() and !GameManager.is_recording: #plays recording when prompted
 		is_playing_replay_rn = true
@@ -42,6 +49,20 @@ func _process(delta: float) -> void:
 		$replay.play(true)
 		await get_tree().create_timer(3).timeout
 		is_playing_replay_rn = false
+
+	if can_click:
+		print("can click")
+		if Input.is_action_just_pressed("Interact_1") or clone_inputed:
+			door_open = true
+			print("door opened")
+	
+	if door_open and is_in_door:
+		if Input.is_action_just_pressed("Interact_1"):
+			get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	
+	if is_in_door and door_open:
+		if Input.is_action_just_pressed("Interact_1"):
+			get_tree().change_scene_to_file("res://Scenes/level_2.tscn")
 
 func _on_recording_fps_timeout() -> void: #to musi byc ustawione na One Shot
 	can_frame = true
@@ -57,4 +78,25 @@ func _on_recording_time_timeout() -> void: #to tez musi byc ustawione na one sho
 			c.load()
 
 func _on_replay_player_input() -> void:
-	pass # Replace with function body.
+	clone_inputed = true
+	print("cln-y")
+
+func _on_replay_player_not_input() -> void:
+	clone_inputed = false
+	print("cln-n")
+
+
+func _on_comp_2_body_entered(body: Node2D) -> void:
+	can_click = true
+
+
+func _on_comp_2_body_exited(body: Node2D) -> void:
+	can_click = false
+
+
+func _on_door_2_body_entered(body: Node2D) -> void:
+	is_in_door = true
+
+
+func _on_door_2_body_exited(body: Node2D) -> void:
+	is_in_door = false

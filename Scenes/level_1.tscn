@@ -4,8 +4,10 @@
 [ext_resource type="Script" uid="uid://coo6foyjiytd3" path="res://Scripts/level_1.gd" id="1_evi0p"]
 [ext_resource type="Texture2D" uid="uid://dtd2mfh0u8h8k" path="res://Assets/SpriteSheets/game_jam_bg.png" id="2_7p6j4"]
 [ext_resource type="PackedScene" uid="uid://c5uepl5ppwyrn" path="res://Scenes/ui.tscn" id="3_lsmp6"]
-[ext_resource type="PackedScene" uid="uid://b4m84k71pu7m" path="res://Scenes/level_1/door.tscn" id="4_7p6j4"]
+[ext_resource type="PackedScene" uid="uid://cpcyy8h2wxrp7" path="res://Scenes/comp_2.tscn" id="4_lsmp6"]
 [ext_resource type="Script" uid="uid://bl3so2kbu75dj" path="res://Scripts/replay.gd" id="5_6444e"]
+[ext_resource type="PackedScene" uid="uid://bj80em0g3xy4k" path="res://Scenes/door_2.tscn" id="5_lsmp6"]
+[ext_resource type="Script" uid="uid://ga7yho2oi347" path="res://Scenes/comp_2.gd" id="5_xrdnt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evi0p"]
 texture = ExtResource("2_7p6j4")
@@ -109,7 +111,7 @@ texture = ExtResource("2_7p6j4")
 19:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_6444e"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 0
 physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_evi0p")
 
@@ -241,7 +243,7 @@ texture = ExtResource("2_7p6j4")
 17:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.1574974, -8, -8, -8, -8, 8, -5.1574974, 8)
 
 [sub_resource type="TileSet" id="TileSet_lsmp6"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_lsmp6")
 
@@ -250,7 +252,6 @@ script = ExtResource("1_evi0p")
 
 [node name="Player" parent="." unique_id=1297774322 instance=ExtResource("1_8ffim")]
 position = Vector2(0, -18)
-collision_mask = 5
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1089701602]
 zoom = Vector2(3, 3)
@@ -261,6 +262,8 @@ tile_map_data = PackedByteArray("AAAEAP//AQAAAAEAAAAFAP//AQAEAAAAAAAGAP//AQAAAAE
 tile_set = SubResource("TileSet_6444e")
 
 [node name="Decorations" type="TileMapLayer" parent="." unique_id=1311412633]
+light_mask = 0
+visibility_layer = 0
 z_index = 2
 tile_map_data = PackedByteArray("AAARAPz/AQAFAAAAAAANAP//AQAHAAEAAAANAP7/AQAHAAEAAAANAPz/AQAAAAIAAAAPAPr/AQAJAAAAAAAQAPr/AQAJAAAAAAARAPr/AQAJAAAAAAASAPr/AQAJAAAAAAATAPr/AQAFAAMAAAANAPv/AQAAAAIAAAAOAPr/AQAAAAIAAAANAPr/AQAAAAIAAAAKAP7/AQAIAAMAAAAHAP//AQAKAAAAAAAUAPr/AQAJAAAAAAANAPn/AQAAAAIAAAAMAPr/AQAAAAIAAAANAP3/AQAHAAAAAAA=")
 tile_set = SubResource("TileSet_lsmp6")
@@ -270,8 +273,15 @@ z_index = 2
 tile_map_data = PackedByteArray("AAARAPz/AQAFAAAAAAANAP//AQAHAAEAAAANAP7/AQAHAAEAAAANAPz/AQAPAAAAAAAPAPr/AQAPAAEAAAAQAPr/AQAJAAAAAAARAPr/AQAJAAAAAAASAPr/AQAJAAAAAAATAPr/AQAFAAMAAAANAPv/AQAAAAIAAAAOAPr/AQAOAAEAAAANAPr/AQAAAAIAAAAUAPr/AQAOAAEAAAAKAP7/AQAIAAMAAAAHAP//AQAKAAAAAAD8/wAAAQAOAAEAAAD8////AQAOAAEAAAD8//7/AQAOAAEAAAD8//3/AQAQAAIAAAAPAPn/AQAQAAAAAAAVAPr/AQAPAAEAAAAVAPv/AQAPAAEAAAAVAPz/AQAPAAEAAAAVAP3/AQAPAAEAAAAVAP7/AQAPAAEAAAAVAP//AQAPAAEAAAAUAPn/AQATAAAAAAAVAPn/AQAPAAEAAAAUAPv/AQAOAAEAAAAUAPz/AQAOAAEAAAAUAP3/AQAOAAEAAAAUAP7/AQAOAAEAAAAUAP//AQAOAAEAAAD9/wEAAQAOAAIAAAD+/wEAAQAOAAIAAAD//wEAAQAOAAIAAAAAAAEAAQAOAAIAAAABAAEAAQAOAAIAAAACAAEAAQAOAAIAAAADAAEAAQAOAAIAAAAEAAEAAQAOAAIAAAAFAAEAAQAOAAIAAAAGAAEAAQAOAAIAAAAHAAEAAQAOAAIAAAAIAAEAAQAOAAIAAAAJAAEAAQAOAAIAAAAKAAEAAQAOAAIAAAALAAEAAQAOAAIAAAAMAAEAAQAOAAIAAAANAAEAAQAOAAIAAAAOAAEAAQAOAAIAAAAPAAEAAQAOAAIAAAAQAAEAAQAOAAIAAAARAAEAAQAOAAIAAAASAAEAAQAOAAIAAAATAAEAAQAOAAIAAAAUAAEAAQAOAAIAAAD9//7/AQAPAAEAAAD9////AQAPAAEAAAD9/wAAAQAPAAEAAAD8//z/AQAWAAAAAAD9//z/AQAOAAAAAAD+//z/AQAPAAAAAAD///z/AQAPAAAAAAAAAPz/AQAPAAAAAAABAPz/AQAPAAAAAAACAPz/AQAPAAAAAAADAPz/AQAPAAAAAAAEAPz/AQAPAAAAAAAFAPz/AQAPAAAAAAAGAPz/AQAPAAAAAAAHAPz/AQAPAAAAAAAIAPz/AQAPAAAAAAAJAPz/AQAPAAAAAAAPAPj/AQAOAAAAAAAQAPj/AQAOAAAAAAARAPj/AQAOAAAAAAASAPj/AQAOAAAAAAATAPj/AQAOAAAAAAAUAPj/AQAPAAAAAAAVAPj/AQAXAAAAAAAVAAEAAQAVAAEAAAD8/wEAAQAUAAEAAAAOAPv/AQAOAAEAAAAOAPz/AQARAAEAAAAPAPv/AQAPAAEAAAAPAPz/AQAPAAEAAAAPAP3/AQAVAAEAAAAKAPz/AQAPAAAAAAALAPz/AQAPAAAAAAAMAPz/AQAPAAAAAAAOAPn/AQAOAAEAAAAOAPj/AQAUAAAAAAAJAP3/AQAOAAIAAAAKAP3/AQAOAAIAAAALAP3/AQAOAAIAAAAMAP3/AQAOAAIAAAANAP3/AQAOAAIAAAAOAP3/AQAOAAIAAAAQAPn/AQAPAAIAAAARAPn/AQAPAAIAAAASAPn/AQAPAAIAAAATAPn/AQAPAAIAAAAVAAAAAQAPAAEAAAAUAAAAAQAOAAEAAAAFAP3/AQAOAAIAAAAGAP3/AQAOAAIAAAAHAP3/AQAOAAIAAAAIAP3/AQAOAAIAAAD9//3/AQAQAAAAAAD+//3/AQAOAAIAAAD///3/AQAOAAIAAAAAAP3/AQAOAAIAAAABAP3/AQAOAAIAAAACAP3/AQAOAAIAAAADAP3/AQAOAAIAAAAEAP3/AQAOAAIAAAA=")
 tile_set = SubResource("TileSet_lsmp6")
 
-[node name="Door" parent="." unique_id=1938198095 instance=ExtResource("4_7p6j4")]
-position = Vector2(317, -16)
+[node name="comp2" parent="." unique_id=788314603 instance=ExtResource("4_lsmp6")]
+position = Vector2(287, -70)
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("5_xrdnt")
+
+[node name="door_2" parent="." unique_id=543632920 instance=ExtResource("5_lsmp6")]
+position = Vector2(303, -12)
+collision_layer = 8
 
 [node name="replay" type="Node" parent="." unique_id=131720719 node_paths=PackedStringArray("recorded_obj")]
 script = ExtResource("5_6444e")
@@ -291,6 +301,11 @@ one_shot = true
 
 [node name="UI" parent="CanvasLayer" unique_id=1835474580 instance=ExtResource("3_lsmp6")]
 
+[connection signal="body_entered" from="comp2" to="." method="_on_comp_2_body_entered"]
+[connection signal="body_exited" from="comp2" to="." method="_on_comp_2_body_exited"]
+[connection signal="body_entered" from="door_2" to="." method="_on_door_2_body_entered"]
+[connection signal="body_exited" from="door_2" to="." method="_on_door_2_body_exited"]
 [connection signal="player_input" from="replay" to="." method="_on_replay_player_input"]
+[connection signal="player_not_input" from="replay" to="." method="_on_replay_player_not_input"]
 [connection signal="timeout" from="RecordingFps" to="." method="_on_recording_fps_timeout"]
 [connection signal="timeout" from="RecordingTime" to="." method="_on_recording_time_timeout"]
