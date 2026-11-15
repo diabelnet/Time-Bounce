@@ -55,14 +55,17 @@ func _input(event: InputEvent) -> void:
 		GameManager.curr_clone = 0
 		get_tree().call_group('UI', 'now_active', 1)
 	if(event.is_action_pressed("Clone_2_" + str(GameManager.controlls))):
-		GameManager.curr_clone = 1
-		get_tree().call_group('UI', 'now_active', 2)
+		if(GameManager.curr_lvl >= 2):
+			GameManager.curr_clone = 1
+			get_tree().call_group('UI', 'now_active', 2)
 	if(event.is_action_pressed("Clone_3_" + str(GameManager.controlls))):
-		GameManager.curr_clone = 2
-		get_tree().call_group('UI', 'now_active', 3)
+		if(GameManager.curr_lvl >= 3):
+			GameManager.curr_clone = 2
+			get_tree().call_group('UI', 'now_active', 3)
 	if(event.is_action_pressed("Clone_4_" + str(GameManager.controlls))):
-		GameManager.curr_clone = 3
-		get_tree().call_group('UI', 'now_active', 4)
+		if(GameManager.curr_lvl >= 4):
+			GameManager.curr_clone = 3
+			get_tree().call_group('UI', 'now_active', 4)
 	
 func _ready() -> void:
 	anim = get_node("AnimatedSprite2D")

@@ -34,8 +34,6 @@ var currentAction = 0
 func play(can_activate:bool):
 	print(GameManager.curr_clone)
 	if record_data[GameManager.curr_clone] and can_activate:
-		#for c in get_children():
-			#c.queue_free()
 		if(instances[GameManager.curr_clone] != null):
 			instances[GameManager.curr_clone].queue_free()
 		var clone = cloneScene.instantiate() 

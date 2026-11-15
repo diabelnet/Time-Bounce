@@ -1,31 +1,19 @@
 extends Control
 
-var UI_element
-var element_color
+@onready var UI_element = [$HBoxContainer/AbilityUI1, $HBoxContainer/AbilityUI2, $HBoxContainer/AbilityUI3, $HBoxContainer/AbilityUI4]
+var element_color = ["R","G","B","P"]
 var KeyBins := []
 var YesNoElement
 var NowActiveElement
 
 func start_cooldown(time:float, which: int): #time - ile czasu trwa cooldown, which - ktory cooldown wystartowac (dla ktorego UI)
-	match which:
-		1:
-			UI_element = $HBoxContainer/AbilityUI1
-			element_color = "R"
-		2:
-			UI_element = $HBoxContainer/AbilityUI2
-			element_color = "G"
-		3:
-			UI_element = $HBoxContainer/AbilityUI3
-			element_color = "B"
-		4:
-			UI_element = $HBoxContainer/AbilityUI4
-			element_color = "P"
+	var index = which
 		
 	for i in range(2,10):
-		var path: String = "res://Assets/sprites/game_jam_GUI_" + element_color + "_" +str(i) + ".png"
-		UI_element.texture = load(path)
+		var path: String = "res://Assets/sprites/game_jam_GUI_" + element_color[index] + "_" +str(i) + ".png"
+		UI_element[index].texture = load(path)
 		await get_tree().create_timer(time/8).timeout
-	UI_element.texture = load("res://Assets/sprites/game_jam_GUI_"+ element_color+"_10.png")
+	UI_element[index].texture = load("res://Assets/sprites/game_jam_GUI_"+ element_color[index]+"_10.png")
 				
 func unlock(which : int):
 	match which:
