@@ -1,5 +1,46 @@
 [gd_scene format=3 uid="uid://de4k3mxfq8dio"]
 
+[ext_resource type="FontFile" uid="uid://dsupgpcxd5q5g" path="res://Assets/fonts/04B_03__.TTF" id="1_i44u3"]
+[ext_resource type="Script" uid="uid://dyed3wbxuwpxk" path="res://Scripts/settings.gd" id="1_lhmql"]
+[ext_resource type="Texture2D" uid="uid://d03nn3k5jim8m" path="res://Assets/sprites/arrow.png" id="2_lhmql"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5r54"]
+bg_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+expand_margin_left = 8.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i44u3"]
+bg_color = Color(0.24313726, 0.24313726, 0.24313726, 1)
+expand_margin_left = 12.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaqfp"]
+bg_color = Color(0.24313726, 0.24313726, 0.24313726, 1)
+expand_margin_left = 8.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhmql"]
+bg_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2dne"]
+bg_color = Color(0.24313726, 0.24313726, 0.24313726, 1)
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6kysc"]
+bg_color = Color(0.24313726, 0.24313726, 0.24313726, 1)
+corner_detail = 1
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+
 [node name="Settings" type="Control" unique_id=868771308]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +48,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lhmql")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=940663719]
 layout_mode = 1
@@ -18,30 +60,96 @@ anchor_bottom = 0.5
 offset_left = -180.0
 offset_top = -140.0
 offset_right = 180.0
-offset_bottom = 140.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.18431373, 0.18431373, 0.18431373, 0.78431374)
+color = Color(0.18431373, 0.18431373, 0.18431373, 0.8627451)
 
-[node name="CenterContainer" type="CenterContainer" parent="ColorRect" unique_id=1335665804]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect" unique_id=1834062805]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer" unique_id=1882247484]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer" unique_id=1882247484]
 custom_minimum_size = Vector2(340, 0)
 layout_mode = 2
+theme_override_constants/separation = 16
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=920663329]
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer" unique_id=920663329]
 layout_mode = 2
+theme_override_constants/separation = 16
 
-[node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/HBoxContainer" unique_id=332267095]
+[node name="Movment" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=332267095]
 layout_mode = 2
-text = "AUDIO: "
+theme_override_fonts/font = ExtResource("1_i44u3")
+theme_override_font_sizes/font_size = 26
+text = "MOVMENT STYLE:"
 
-[node name="HScrollBar" type="HScrollBar" parent="ColorRect/CenterContainer/VBoxContainer/HBoxContainer" unique_id=919090064]
-custom_minimum_size = Vector2(260, 0)
+[node name="MovmentOption" type="OptionButton" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=737910389]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_i44u3")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_t5r54")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i44u3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aaqfp")
+theme_override_icons/arrow = ExtResource("2_lhmql")
+selected = 0
+item_count = 2
+popup/item_0/text = "WASD"
+popup/item_0/id = 0
+popup/item_1/text = "ARROWS"
+popup/item_1/id = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer" unique_id=1637812377]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="WindowStyl" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1476156136]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_i44u3")
+theme_override_font_sizes/font_size = 26
+text = "WINDOW:"
+
+[node name="WinSet" type="OptionButton" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1081719415]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_i44u3")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_t5r54")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i44u3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aaqfp")
+theme_override_icons/arrow = ExtResource("2_lhmql")
+selected = 0
+item_count = 2
+popup/item_0/text = "WINDOWED"
+popup/item_0/id = 0
+popup/item_1/text = "FULLSCREEN"
+popup/item_1/id = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect" unique_id=1625581460]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.5
+offset_top = -40.0
+offset_right = 29.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="Back" type="Button" parent="ColorRect/MarginContainer2" unique_id=44564061]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_i44u3")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_lhmql")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j2dne")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6kysc")
+text = "BACK"
+
+[connection signal="focus_exited" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/MovmentOption" to="." method="_on_movment_option_focus_exited"]
+[connection signal="focus_exited" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer2/WinSet" to="." method="_on_win_set_focus_exited"]
+[connection signal="pressed" from="ColorRect/MarginContainer2/Back" to="." method="_on_back_pressed"]

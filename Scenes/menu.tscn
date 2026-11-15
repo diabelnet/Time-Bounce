@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://dsupgpcxd5q5g" path="res://Assets/fonts/04B_03__.TTF" id="1_1rerr"]
 [ext_resource type="Script" uid="uid://dwuoyxv1ibjur" path="res://Scripts/menu.gd" id="1_xhh6f"]
-[ext_resource type="Texture2D" uid="uid://c63xt6fbancmc" path="res://Assets/BG/bg_title_mono.png" id="2_cayip"]
+[ext_resource type="Texture2D" uid="uid://ctmkw4kf4gp7y" path="res://Assets/BG/bg_title_mono.png" id="2_cayip"]
 [ext_resource type="PackedScene" uid="uid://de4k3mxfq8dio" path="res://Scenes/settings.tscn" id="4_158mb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6m2ua"]
@@ -182,3 +182,4 @@ layout_mode = 1
 [connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="back" from="Settings" to="." method="_on_settings_back"]
