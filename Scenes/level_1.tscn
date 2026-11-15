@@ -279,7 +279,6 @@ target = NodePath("../Door")
 
 [node name="Door" parent="." unique_id=1938198095 instance=ExtResource("4_7p6j4")]
 position = Vector2(317, -16)
-comp_needed = 1
 
 [node name="replay" type="Node" parent="." unique_id=131720719 node_paths=PackedStringArray("recorded_obj")]
 script = ExtResource("5_6444e")

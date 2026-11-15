@@ -312,7 +312,7 @@ tile_set = SubResource("TileSet_vcilj")
 [node name="Door" parent="." unique_id=1938198095 instance=ExtResource("4_2mgoq")]
 position = Vector2(288, -16)
 animation = &"open"
-comp_needed = 2
+comp_needed = 1
 
 [node name="replay" type="Node" parent="." unique_id=500012239 node_paths=PackedStringArray("recorded_obj")]
 script = ExtResource("5_uhnj4")
