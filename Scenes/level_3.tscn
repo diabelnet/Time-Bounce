@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://bl3so2kbu75dj" path="res://Scripts/replay.gd" id="5_n4vm5"]
 [ext_resource type="PackedScene" uid="uid://dricx0hklwk4x" path="res://Scenes/Platform_inv.tscn" id="6_qf6rc"]
 [ext_resource type="Script" uid="uid://eid61iujuixh" path="res://Scripts/platform_inv.gd" id="7_5e78q"]
-[ext_resource type="PackedScene" uid="uid://ckfawykjwwfv6" path="res://Scenes/level_3/computer_3.tscn" id="7_53xsp"]
 [ext_resource type="PackedScene" uid="uid://c5uepl5ppwyrn" path="res://Scenes/ui.tscn" id="9_ki8bc"]
 [ext_resource type="PackedScene" uid="uid://dw2edbrjxjat" path="res://Scenes/level_3/door3.tscn" id="9_l4wr6"]
 
@@ -347,39 +346,8 @@ position = Vector2(-56, -104)
 script = ExtResource("7_5e78q")
 needs = 3
 
-[node name="Computer" parent="." unique_id=858378710 node_paths=PackedStringArray("target") instance=ExtResource("7_53xsp")]
-position = Vector2(32, -70)
-animation = &"def"
-target = NodePath("../Platform")
-
-[node name="Computer2" parent="." unique_id=1694854752 node_paths=PackedStringArray("target") instance=ExtResource("7_53xsp")]
-position = Vector2(96, -71)
-animation = &"def"
-target = NodePath("../Platform")
-
-[node name="Computer3" parent="." unique_id=2074344608 node_paths=PackedStringArray("target") instance=ExtResource("7_53xsp")]
-position = Vector2(160, -71)
-animation = &"def"
-target = NodePath("../Platform")
-
-[node name="Computer4" parent="." unique_id=216944887 node_paths=PackedStringArray("target") instance=ExtResource("7_53xsp")]
-position = Vector2(-184, 90)
-animation = &"def"
-target = NodePath("../Platform2")
-
-[node name="Computer5" parent="." unique_id=1147249177 node_paths=PackedStringArray("target") instance=ExtResource("7_53xsp")]
-position = Vector2(202, 26)
-animation = &"def"
-target = NodePath("../Door")
-
-[node name="Computer6" parent="." unique_id=1154662913 node_paths=PackedStringArray("target") instance=ExtResource("7_53xsp")]
-position = Vector2(57, 137)
-animation = &"def"
-target = NodePath("../Door")
-
 [node name="Door" parent="." unique_id=1938198095 instance=ExtResource("9_l4wr6")]
 position = Vector2(192, 64)
-comp_needed = 3
 
 [node name="Platform2" parent="." unique_id=1197992465 node_paths=PackedStringArray("door") instance=ExtResource("6_qf6rc")]
 position = Vector2(8, 88)

@@ -7,15 +7,9 @@ var is_timer_started:=false #checks if timer for can_record is started so it can
 var did_return := true #check if player returned to thier first position after recording
 var is_playing_replay_rn := false
 
-
 func _ready() -> void:
-	get_tree().call_group("UI", "unlock", 2)
-	GameManager.curr_clone = 0
+	pass
 	
-	if GameManager.controlls == 2:
-		$Sprite2D/Label.text = "s"
-		$Sprite2D3/Label.text = "z"
-
 func _process(delta: float) -> void:
 	if can_record:
 		if GameManager.is_recording == true: #checks if button is pressed for recording or is it recording now
@@ -33,9 +27,6 @@ func _process(delta: float) -> void:
 				
 	elif Input.is_action_just_pressed("Record_Clone_" + str(GameManager.controlls)) and !is_playing_replay_rn:
 		get_tree().call_group('UI', 'start_cooldown', 3, GameManager.curr_clone)
-		for c in get_children():
-			if(c.name == "Computer"):
-				c.save()
 		GameManager.actionClone.call()
 		GameManager.actionClone = GameManager.empty
 		GameManager.is_recording = true
@@ -62,9 +53,9 @@ func _on_recording_time_timeout() -> void: #to tez musi byc ustawione na one sho
 	GameManager.is_recording = false
 	get_tree().call_group('UI', 'change_recorded_save', GameManager.curr_clone, true)
 	
-	for c in get_children():
-		if(c.name.begins_with("Computer")):
-			c.load()
+	for target in get_children():
+		if target is Target:
+			target.reset()
 
 func _on_replay_player_input() -> void:
 	pass # Replace with function body.

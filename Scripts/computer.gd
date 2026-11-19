@@ -1,63 +1,20 @@
-extends AnimatedSprite2D
+extends Interface
 
-@onready var area_2d: Area2D = $Area2D
+var sprite:AnimatedSprite2D
+@export var flickerCount:int
 
-@export var input_name:String
-@export var repeat_flicker = 4
-@export var resets:bool
-@export var time_to_reset:float
-@export var target:AnimatedSprite2D
-
-var interacted:bool = false
-
-var interactable:bool = true
-var curr_flicker = 0
-func interact():
-	GameManager.actionClone = interact
-	interactable = false
-	if(curr_flicker < repeat_flicker):
-		curr_flicker += 1
-		self.play("flicker")
-		await self.animation_finished
-		interact()
-	else:
-		self.play("anim")
-		await self.animation_finished
-		if(resets):
-			var timer = get_tree().create_timer(time_to_reset)
-			timer.timeout = reset
-		print(target)
-		if(interacted):
-			target.interact()
-		interacted = true
-	
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if(interactable && body.name == "Player"):
-		GameManager.action = [input_name + 
-		str(GameManager.controlls),interact]
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if(body.name == "Player"):
-		GameManager.action = [null,null]
+func _ready() -> void:
+	super()
+	sprite = get_node("Sprite")
 
 func reset():
-	curr_flicker = 0
-	interactable = true
-	target.reset()
-	interacted = false
+	sprite.play("def")
 
-var old_inter:bool = true
-
-func save():
-	old_inter = interactable
-	target.save()
+func interact():
+	sprite.play("flicker")
 	
-func load():
-	target.load()
-	interactable = old_inter
-	if(self.is_playing()):
-		self.stop()
-	self.play("def")
-	if(target.is_playing()):
-		target.stop()
-	target.play("default")
+	for i in range(0, flickerCount):
+		sprite.play("flicker")
+		await sprite.animation_finished
+		
+	sprite.play("anim")

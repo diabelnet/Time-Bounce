@@ -16,6 +16,9 @@ var cloneScene := load("res://Scenes/clone.tscn")
 
 signal player_input
 
+var instances:Array[CharacterBody2D] = [null, null, null, null]
+var currentAction = 0
+
 var frame := 0
 var record_data = [{},{},{},{}]
 var first_pos : Vector2
@@ -25,12 +28,10 @@ func record():
 	if(frame == 0):
 		first_pos = recorded_obj.global_position
 	
-	record_data[GameManager.curr_clone][frame] = {'pos' : recorded_obj.global_position, 'input' : Input.is_action_pressed("Interact_" + str(GameManager.controlls))} #np. record_data[0]['pos'] = Vector2(), lua syntax
-
+	record_data[GameManager.curr_clone][frame] = {'pos' : recorded_obj.global_position, 'input' : GameManager.inputted} #np. record_data[0]['pos'] = Vector2(), lua syntax
+	GameManager.inputted = false
 	frame +=1
 	
-var instances:Array[CharacterBody2D] = [null, null, null, null]
-var currentAction = 0
 func play(can_activate:bool):
 	if record_data[GameManager.curr_clone] and can_activate:
 		if(instances[GameManager.curr_clone] != null):
@@ -46,13 +47,16 @@ func play(can_activate:bool):
 		for i in frame:
 			tween.tween_property(clone, 'global_position', record_data[GameManager.curr_clone][i]['pos'], 0.1)
 			if record_data[GameManager.curr_clone][i]['input'] == true:
-				print(GameManager.actionClone)
-				GameManager.actionClone.call()
-				#if(GameManager.actionClone[currentAction].size() > 0)
-					#GameManager.actionClone[currentAction][GameManager.curr_clone][0].call()
+				var callable := Callable(self, "recorderInteractionCallable")
+				callable = callable.bind(currentAction)
+				get_tree().create_timer(0.1 * i).connect("timeout", callable)
 				currentAction += 1
 		return true
 				
+func recorderInteractionCallable(action):
+	GameManager.recordedInteraction[action].value.interact(GameManager.recordedInteraction[action].key)
+	GameManager.recordedInteraction[action].key.interact()
+
 func return_to_orginal_position():
 	recorded_obj.global_position = first_pos
 	

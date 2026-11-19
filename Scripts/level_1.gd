@@ -26,17 +26,17 @@ func _process(delta: float) -> void:
 				
 	elif Input.is_action_just_pressed("Record_Clone_" + str(GameManager.controlls)) and !is_playing_replay_rn:
 		get_tree().call_group('UI', 'start_cooldown', 3,0)
-		for c in get_children():
-			if(c.name == "Computer"):
-				c.save()
-		GameManager.actionClone = GameManager.empty
+		#for c in get_children():
+		#	if(c.name == "Computer"):
+		#		c.save()
+		#GameManager.actionClone = GameManager.empty
 		GameManager.is_recording = true
 		can_record = true
 		$replay.reset()
 			
-	elif did_return == false: #when recording ends it checks if player returned, if not then it retuns them
-				$replay.return_to_orginal_position()
-				did_return = true
+	#elif did_return == false: #when recording ends it checks if player returned, if not then it retuns them
+				#$replay.return_to_orginal_position()
+				#did_return = true
 			
 	if Input.is_action_just_pressed("Play_Clone_"+str(GameManager.controlls)) and !is_playing_replay_rn and $replay.is_recorded() and !GameManager.is_recording: #plays recording when prompted
 		is_playing_replay_rn = true
@@ -53,7 +53,6 @@ func _process(delta: float) -> void:
 		$space.hide()
 		$tut5.show()
 		$tut6.show()
-		
 
 func _on_recording_fps_timeout() -> void: #to musi byc ustawione na One Shot
 	can_frame = true
@@ -64,22 +63,39 @@ func _on_recording_time_timeout() -> void: #to tez musi byc ustawione na one sho
 	GameManager.is_recording = false
 	get_tree().call_group('UI', 'change_recorded_save', GameManager.curr_clone, true)
 	
-	for c in get_children():
-		if(c.name == "Computer"):
-			c.load()
+	for target in get_children():
+		if target is Target:
+			target.reset()
+			
+	
+	for key_val in GameManager.recordedInteraction:
+		key_val.key.reset()
+		
+	
+	$replay.return_to_orginal_position()
 
 func _on_replay_player_input() -> void:
 	pass # Replace with function body.
-
 
 func _on_tut_hitbox_body_entered(body: Node2D) -> void:
 	next_tut = true
 	
 func _ready() -> void:
-	if GameManager.controlls == 2:
-		$VBoxContainer/Label.text = "^"
-		$VBoxContainer/Label2.text = "<    >"
-		$tut3/Label.text = "z"
-		$tut4/Label.text = "c"
-		$tut5/Label.text = "x"
-		$tut6/Label.text = "z"
+	match GameManager.curr_lvl:
+		1:
+			if GameManager.controlls == 2:
+				$VBoxContainer/Label.text = "^"
+				$VBoxContainer/Label2.text = "<    >"
+				$tut3/Label.text = "z"
+				$tut4/Label.text = "c"
+				$tut5/Label.text = "x"
+				$tut6/Label.text = "z"
+		2:
+			get_tree().call_group("UI", "unlock", 2)
+			GameManager.curr_clone = 0
+
+			if GameManager.controlls == 2:
+				$Sprite2D/Label.text = "s"
+				$Sprite2D3/Label.text = "z"
+
+		

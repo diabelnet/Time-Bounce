@@ -42,14 +42,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func _input(event: InputEvent) -> void:
-	if(GameManager.action[0] != null):
-		if(event.is_action_pressed(GameManager.action[0])):
-			GameManager.action[1].call()
+	#if(GameManager.action[0] != null):
+		#if(event.is_action_pressed(GameManager.action[0])):
+			#GameManager.action[1].call()
 			
 	if(event.is_action_pressed("Restart")):
 			get_tree().reload_current_scene()
-			GameManager.action = [null,null]
-			GameManager.actionClone = GameManager.empty
+			GameManager.recordedInteraction.clear()
 			
 	if(event.is_action_pressed("Clone_1_" + str(GameManager.controlls)) and !GameManager.is_recording):
 		GameManager.curr_clone = 0
