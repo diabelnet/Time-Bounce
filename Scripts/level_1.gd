@@ -25,7 +25,7 @@ func _process(_delta: float) -> void:
 				$RecordingFps.start()
 				
 	elif Input.is_action_just_pressed("Record_Clone_" + str(GameManager.controlls)) and !is_playing_replay_rn:
-		get_tree().call_group('UI', 'start_cooldown', 3,0)
+		get_tree().call_group('UI', 'start_cooldown', 3,GameManager.curr_clone)
 		#for c in get_children():
 		#	if(c.name == "Computer"):
 		#		c.save()
@@ -40,7 +40,7 @@ func _process(_delta: float) -> void:
 			
 	if Input.is_action_just_pressed("Play_Clone_"+str(GameManager.controlls)) and !is_playing_replay_rn and $replay.is_recorded() and !GameManager.is_recording: #plays recording when prompted
 		is_playing_replay_rn = true
-		get_tree().call_group('UI', 'start_cooldown', 3,0)
+		get_tree().call_group('UI', 'start_cooldown', 3, GameManager.curr_clone)
 		$replay.play(true)
 		await get_tree().create_timer(3).timeout
 		is_playing_replay_rn = false

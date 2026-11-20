@@ -12,7 +12,7 @@ var is_recording := false
 var inputted := false
 var currentInputRecording := 0
 
-var curr_clone = 1
+var curr_clone = 0
 
 func emptyCallable():
 	pass
