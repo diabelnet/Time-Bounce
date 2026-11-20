@@ -296,11 +296,13 @@ sources/0 = SubResource("TileSetAtlasSource_bl0du")
 [node name="level_2" type="Node2D" unique_id=1090056640]
 script = ExtResource("1_ait6c")
 
-[node name="Computer2" parent="." unique_id=142835762 instance=ExtResource("6_t7v2y")]
+[node name="Computer2" parent="." unique_id=142835762 node_paths=PackedStringArray("targets") instance=ExtResource("6_t7v2y")]
 position = Vector2(72, 74)
+targets = [NodePath("../Door"), NodePath("../Platform")]
 
-[node name="Computer" parent="." unique_id=1065543510 instance=ExtResource("6_t7v2y")]
+[node name="Computer" parent="." unique_id=1065543510 node_paths=PackedStringArray("targets") instance=ExtResource("6_t7v2y")]
 position = Vector2(282, 41)
+targets = [NodePath("../Door")]
 
 [node name="Player" parent="." unique_id=1297774322 instance=ExtResource("2_uhnj4")]
 position = Vector2(-172, -11)
