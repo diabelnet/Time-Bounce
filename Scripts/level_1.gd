@@ -9,7 +9,7 @@ var is_playing_replay_rn := false
 
 var next_tut := false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if can_record:
 		if GameManager.is_recording == true: #checks if button is pressed for recording or is it recording now
 			did_return = false
@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 		#for c in get_children():
 		#	if(c.name == "Computer"):
 		#		c.save()
-		#GameManager.actionClone = GameManager.empty
+		#GameManager.actionClone = GameManager.emptyCallable
 		GameManager.is_recording = true
 		can_record = true
 		$replay.reset()
@@ -77,7 +77,7 @@ func _on_recording_time_timeout() -> void: #to tez musi byc ustawione na one sho
 func _on_replay_player_input() -> void:
 	pass # Replace with function body.
 
-func _on_tut_hitbox_body_entered(body: Node2D) -> void:
+func _on_tut_hitbox_body_entered(_body: Node2D) -> void:
 	next_tut = true
 	
 func _ready() -> void:

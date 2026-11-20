@@ -1,7 +1,8 @@
 @abstract
 
 ## For this class to work correctly you need: [br]
-## func logic(), func resetInteraction [br]
+## func logic(), func resetInteraction() [br]
+## contains an Area2D collider that's automatically set to a child node "Collider" in the _ready function [br]
 ## !!! If you want to use _ready() you need to add super() for it to work !!!
 class_name Target
 extends Node
@@ -15,10 +16,22 @@ var recordingActiveIntefaces:Array[Interface]
 ## value of 0 means that the interfaces won't reset 
 @export var timeToReset:float
 
+## if set to false stops executing the _input function
+@export var inputEnabled:bool = true
+
+## function that's called in the _input when pressed the interaction key and the interaction requirement is met
+var inputCallable:Callable = GameManager.emptyCallable
+
+## arguments for the inputCallable function
+var inputCallableArguments:Array = []
+
+## Targets collider
 var collider:Area2D
 
 func _ready() -> void:
-	collider = get_node("Collider")
+	collider = get_node_or_null("Collider")
+	if collider == null:
+		push_warning(str(self) + " - Collider is null")
 
 func interact(interface:Interface):
 	interface.enabled = false
@@ -26,26 +39,38 @@ func interact(interface:Interface):
 	if timeToReset != 0:
 		for i in activeInterfaces:
 			get_tree().create_timer(timeToReset).timeout.connect(resetInterface(interface))
-	
+	#print("---" + self.name + " - " + Time.get_datetime_string_from_system() + "---")
 	if GameManager.is_recording:
 		recordingActiveIntefaces.append(interface)
-		GameManager.recordedInteraction.append(keyValuePair.new(interface,self))
+		if GameManager.recordedInteraction.size() > GameManager.currentInputRecording:
+			GameManager.recordedInteraction[GameManager.currentInputRecording].value.append(self)
+		else:
+			GameManager.recordedInteraction.append(keyValuePair.new(interface, [self]))
+		#GameManager.recordedInteraction.append(keyValuePair.new(interface,self))
 		GameManager.inputted = true
 	else:
 		activeInterfaces.append(interface)
-	
+
+	#print("active: " +  str(activeInterfaces.size()))
+	#print("req: " + str(interactionsRequired))
 	if activeInterfaces.size() + recordingActiveIntefaces.size() >= interactionsRequired:
 		logic()
 
 func _input(event: InputEvent) -> void:
+	if !inputEnabled and inputCallable != null:
+		return
 	if event.is_action("Interact_" +  str(GameManager.controlls)):
 		if activeInterfaces.size() >= interactionsRequired:
 			if GameManager.player == null:
 				print("Player not found")
 				return
-		
-			if collider.overlaps_body(GameManager.player):
-				GameManager.next_level()
+				
+			if collider != null:
+				if collider.overlaps_body(GameManager.player):
+					if inputCallableArguments != []:
+						inputCallable.call(inputCallableArguments)
+					else:
+						inputCallable.call()
 	
 ## Resets recording interfaces; executed at the end of the recording
 func reset():

@@ -1,25 +1,20 @@
-extends AnimatedSprite2D
+extends Target
 
-@onready var collision_shape_2d: CollisionShape2D = $StaticBody2D/CollisionShape2D
-@export var usedForDoor:bool
-@export var door:Node2D
-var value = false
-
-func save():
-	pass
-
-func load():
-	reset()
-	
-func reset():
-	self.visible = false
-	collision_shape_2d.disabled = true
+var node:AnimatedSprite2D
+var body:StaticBody2D
 
 func _ready() -> void:
-	reset()
+	super()
+	node = get_node(self.get_path())
+	body = get_node("StaticBody2D")
+	resetInteraction()
 
-func interact():
-	collision_shape_2d.disabled = false
-	self.visible = true
-	if(usedForDoor):
-		door.active += 1
+func logic():
+	node.visible = true
+	# enables collision with the player
+	body.remove_collision_exception_with(GameManager.player)
+	
+func resetInteraction():
+	node.visible = false
+	# disables collision with the player
+	body.add_collision_exception_with(GameManager.player)

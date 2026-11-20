@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://bl3so2kbu75dj" path="res://Scripts/replay.gd" id="5_uhnj4"]
 [ext_resource type="PackedScene" uid="uid://c7c3ftkr6jo00" path="res://Scenes/level_2/computer_2.tscn" id="6_t7v2y"]
 [ext_resource type="PackedScene" uid="uid://cq6l0ag0jcs21" path="res://Scenes/Platform.tscn" id="7_2mgoq"]
-[ext_resource type="Script" uid="uid://dymqtm82repv7" path="res://Scripts/platform.gd" id="8_2mgoq"]
 [ext_resource type="PackedScene" uid="uid://c5uepl5ppwyrn" path="res://Scenes/ui.tscn" id="9_uhnj4"]
 [ext_resource type="Texture2D" uid="uid://d03nn3k5jim8m" path="res://Assets/sprites/arrow.png" id="10_t7v2y"]
 [ext_resource type="FontFile" uid="uid://dsupgpcxd5q5g" path="res://Assets/fonts/04B_03__.TTF" id="11_ait6c"]
@@ -299,11 +298,11 @@ script = ExtResource("1_ait6c")
 
 [node name="Computer2" parent="." unique_id=142835762 node_paths=PackedStringArray("targets") instance=ExtResource("6_t7v2y")]
 position = Vector2(72, 74)
-targets = [NodePath("../Door")]
+targets = [NodePath("../Door"), NodePath("../Platform"), NodePath("")]
 
 [node name="Computer" parent="." unique_id=1065543510 node_paths=PackedStringArray("targets") instance=ExtResource("6_t7v2y")]
 position = Vector2(282, 41)
-targets = [NodePath("../Door")]
+targets = [NodePath("../Door"), NodePath("")]
 
 [node name="Player" parent="." unique_id=1297774322 instance=ExtResource("2_uhnj4")]
 position = Vector2(-172, -11)
@@ -342,8 +341,7 @@ one_shot = true
 
 [node name="Platform" parent="." unique_id=1694913975 instance=ExtResource("7_2mgoq")]
 position = Vector2(72, 7)
-script = ExtResource("8_2mgoq")
-usedForDoor = true
+interactionsRequired = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1602508429]
 

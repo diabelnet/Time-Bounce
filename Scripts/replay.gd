@@ -14,7 +14,7 @@ class_name replay
 @export var recorded_obj : Node2D
 var cloneScene := load("res://Scenes/clone.tscn") 
 
-signal player_input
+@warning_ignore("unused_signal") signal player_input
 
 var instances:Array[CharacterBody2D] = [null, null, null, null]
 var currentAction = 0
@@ -54,7 +54,8 @@ func play(can_activate:bool):
 		return true
 				
 func recorderInteractionCallable(action):
-	GameManager.recordedInteraction[action].value.interact(GameManager.recordedInteraction[action].key)
+	for v in GameManager.recordedInteraction[action].value:
+		v.interact(GameManager.recordedInteraction[action].key)
 	GameManager.recordedInteraction[action].key.interact()
 
 func return_to_orginal_position():

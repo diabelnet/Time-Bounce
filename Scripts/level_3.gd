@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 			if(c.name == "Computer"):
 				c.save()
 		GameManager.actionClone.call()
-		GameManager.actionClone = GameManager.empty
+		GameManager.actionClone = GameManager.emptyCallable
 		GameManager.is_recording = true
 		can_record = true
 		$replay.reset()

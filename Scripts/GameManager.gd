@@ -7,12 +7,14 @@ var player:CharacterBody2D
 var game_ended:=false
 
 var recordedInteraction:Array[keyValuePair]
+
 var is_recording := false
-var inputted = false
+var inputted := false
+var currentInputRecording := 0
 
 var curr_clone = 1
 
-func empty():
+func emptyCallable():
 	pass
 
 func next_level():
@@ -20,4 +22,4 @@ func next_level():
 	curr_lvl += 1
 	get_tree().change_scene_to_file("res://Scenes/level_" + str(curr_lvl) + ".tscn")
 	recordedInteraction.clear()
-	var inputted = false
+	inputted = false

@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 	elif Input.is_action_just_pressed("Record_Clone_" + str(GameManager.controlls)) and !is_playing_replay_rn:
 		get_tree().call_group('UI', 'start_cooldown', 3, GameManager.curr_clone)
 		GameManager.actionClone.call()
-		GameManager.actionClone = GameManager.empty
+		GameManager.actionClone = GameManager.emptyCallable
 		GameManager.is_recording = true
 		can_record = true
 		$replay.reset()
