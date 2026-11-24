@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bbg8x4pxmdukm"]
+
+[ext_resource type="AudioStream" uid="uid://cun62me17lq7b" path="res://Assets/Music/pre_victory_loading_screen.mp3" id="1_kajln"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" unique_id=1925600009]
+stream = ExtResource("1_kajln")
+autoplay = true

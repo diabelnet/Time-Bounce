@@ -97,5 +97,8 @@ func _ready() -> void:
 			if GameManager.controlls == 2:
 				$Sprite2D/Label.text = "s"
 				$Sprite2D3/Label.text = "z"
-
-		
+			
+		3:
+			get_tree().call_group("UI", "unlock", 2)
+			get_tree().call_group("UI", "unlock", 3)
+			GameManager.curr_clone = 0

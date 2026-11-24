@@ -3,6 +3,8 @@ extends Target
 var node:AnimatedSprite2D
 var body:StaticBody2D
 
+@export var inverted := false;
+
 func _ready() -> void:
 	super()
 	node = get_node(self.get_path())
@@ -10,11 +12,17 @@ func _ready() -> void:
 	resetInteraction()
 
 func logic():
-	node.visible = true
+	node.visible = !inverted
 	# enables collision with the player
-	body.remove_collision_exception_with(GameManager.player)
+	if(!inverted):
+		body.remove_collision_exception_with(GameManager.player)
+	else:
+			body.add_collision_exception_with(GameManager.player)
 	
 func resetInteraction():
-	node.visible = false
+	node.visible = inverted
 	# disables collision with the player
-	body.add_collision_exception_with(GameManager.player)
+	if(inverted):
+		body.remove_collision_exception_with(GameManager.player)
+	else:
+			body.add_collision_exception_with(GameManager.player)

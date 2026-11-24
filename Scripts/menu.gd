@@ -24,3 +24,7 @@ func _on_settings_back() -> void:
 func _ready() -> void:
 	if GameManager.game_ended:
 		$TextureRect.texture = load("res://Assets/BG/bg_title_color.png")
+		var audio:AudioStreamPlayer2D = $"/root/AudioStreamPlayer2d"
+		audio.stream = preload("uid://dstxrnt2oitro")
+		audio.play()
+		GameManager.curr_lvl = 1

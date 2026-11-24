@@ -24,7 +24,8 @@ func _input(event: InputEvent) -> void:
 	if collider.overlaps_body(GameManager.player):
 		if event.is_action_pressed("Interact_" + str(GameManager.controlls)):
 			for t in targets:
-				t.interact(self)
+				if t != null:
+					t.interact(self)
 			interact()
 
 ## Function called when the interface is reset

@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://bbg8x4pxmdukm"]
-
-[ext_resource type="AudioStream" uid="uid://cbnjxut8328xx" path="res://Assets/Sounds/leberch-sci-fi-ambient-589945.mp3" id="1_d2dya"]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=1925600009]
-stream = ExtResource("1_d2dya")
-autoplay = true

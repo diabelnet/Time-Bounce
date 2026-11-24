@@ -65,7 +65,10 @@ func _input(event: InputEvent) -> void:
 		if(GameManager.curr_lvl >= 4):
 			GameManager.curr_clone = 3
 			get_tree().call_group('UI', 'now_active', 4)
-	
+			
+	if(event.is_action_pressed("DEBUG_NEXT") and GameManager.DEBUG):
+		GameManager.next_level();
+			
 func _ready() -> void:
 	anim = get_node("AnimatedSprite2D")
 	audio = get_node("AudioStreamPlayer2D")
